@@ -117,13 +117,14 @@ function findSolutions(numbers, target) {
 // atas clear
 
 // CLUE SOLVER
-function solveClue(guess, clue, correctPosition, wrongPosition) {
+// Fungsi untuk memeriksa kecocokan dengan petunjuk
+function checkClue(guess, clue, correctPosition, wrongPosition) {
     let correct = 0;
     let wrong = 0;
     let guessCopy = [...guess];
     let clueCopy = [...clue];
 
-    // Check correct positions
+    // Cek posisi yang benar
     for (let i = 0; i < guess.length; i++) {
         if (guess[i] === clue[i]) {
             correct++;
@@ -132,7 +133,7 @@ function solveClue(guess, clue, correctPosition, wrongPosition) {
         }
     }
 
-    // Check wrong positions
+    // Cek posisi yang salah
     for (let i = 0; i < guessCopy.length; i++) {
         if (guessCopy[i] !== null && clueCopy.includes(guessCopy[i])) {
             wrong++;
@@ -181,23 +182,22 @@ function findSolution(clues) {
     return null; // No solution found
 }
 
-// Event listener untuk memproses form input
-document.getElementById("clueForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
+// Fungsi untuk mengolah petunjuk dari form input dan mencari solusi
+function solveClue() {
     // Ambil nilai petunjuk dari input form
-    const clue1 = document.getElementById("clue1").value.split(",").map(Number);
-    const clue2 = document.getElementById("clue2").value.split(",").map(Number);
-    const clue3 = document.getElementById("clue3").value.split(",").map(Number);
-    const clue4 = document.getElementById("clue4").value.split(",").map(Number);
-    const clue5 = document.getElementById("clue5").value.split(",").map(Number);
+    const clue1 = document.getElementById("clue-1").value.split(",").map(Number);
+    const clue2 = document.getElementById("clue-2").value.split(",").map(Number);
+    const clue3 = document.getElementById("clue-3").value.split(",").map(Number);
+    const clue4 = document.getElementById("clue-4").value.split(",").map(Number);
+    const clue5 = document.getElementById("clue-5").value.split(",").map(Number);
 
+    // Petunjuk dengan posisi yang benar dan salah
     const clues = [
-        {numbers: clue1, correctPosition: 2, wrongPosition: 0},  // Clue 1
-        {numbers: clue2, correctPosition: 1, wrongPosition: 0},  // Clue 2
-        {numbers: clue3, correctPosition: 0, wrongPosition: 2},  // Clue 3
-        {numbers: clue4, correctPosition: 0, wrongPosition: 1},  // Clue 4
-        {numbers: clue5, correctPosition: 0, wrongPosition: 0},  // Clue 5
+        { numbers: clue1, correctPosition: 2, wrongPosition: 0 },  // Clue 1
+        { numbers: clue2, correctPosition: 1, wrongPosition: 0 },  // Clue 2
+        { numbers: clue3, correctPosition: 0, wrongPosition: 2 },  // Clue 3
+        { numbers: clue4, correctPosition: 0, wrongPosition: 1 },  // Clue 4
+        { numbers: clue5, correctPosition: 0, wrongPosition: 0 },  // Clue 5
     ];
 
     // Temukan solusi
@@ -210,4 +210,4 @@ document.getElementById("clueForm").addEventListener("submit", function(event) {
     } else {
         resultElement.textContent = "No solution found.";
     }
-})
+}
