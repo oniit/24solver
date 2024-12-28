@@ -7,22 +7,23 @@ function solve24() {
     ];
 
     if (nums.some(isNaN)) {
-        document.getElementById('result').innerHTML = ''; // Clear previous results
-        if (solutions.length > 0) {
-            solutions.forEach(solution => {
-                const solutionElement = document.createElement('p');  // Gunakan <p> untuk baris baru
-                solutionElement.textContent = solution;
-                document.getElementById('result').appendChild(solutionElement);
-            });
-        } else {
-            document.getElementById('result').textContent = 'No solutions found.';
-        }
+        document.getElementById('result').textContent = 'Please enter valid numbers.';
         return;
     }
 
     const solutions = findSolutions(nums, 24);
-    document.getElementById('result').textContent = 
-        solutions.length > 0 ? `Solutions:<br>${solutions.join('<br>')}` : 'No solutions found.';
+    const resultContainer = document.getElementById('result');
+    resultContainer.innerHTML = ''; // Clear previous results
+
+    if (solutions.length > 0) {
+        solutions.forEach(solution => {
+            const solutionElement = document.createElement('p');  // Use <p> for new line
+            solutionElement.textContent = solution;
+            resultContainer.appendChild(solutionElement);
+        });
+    } else {
+        resultContainer.textContent = 'No solutions found.';
+    }
 }
 
 function findSolutions(numbers, target) {
