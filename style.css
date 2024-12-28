@@ -4,45 +4,52 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 header {
     background-color: #333;
     color: white;
     padding: 1rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
 }
 
 main {
     padding: 2rem;
 }
 
-input {
-    margin: 0.5rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+.page-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
     background-color: #007BFF;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    margin: 10px;
     transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
-button:hover {
+.page-btn:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
-}
-
-#result {
-    margin-top: 2rem;
-    font-size: 1.2rem;
 }
 
 a {
@@ -50,9 +57,9 @@ a {
 }
 
 a button {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 1rem 2rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     background-color: #28a745;
     color: white;
     border: none;
