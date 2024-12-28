@@ -49,6 +49,31 @@ input {
     margin-top: 20px;
 }
 
+/* Styling untuk tombol di halaman utama */
+.page-btn {
+    padding: 1rem 2rem;  /* Menambah padding agar tombol lebih besar */
+    font-size: 1.5rem;    /* Membuat teks tombol lebih besar */
+    border-radius: 10px;  /* Membuat sudut tombol lebih bulat */
+    background-color: #007bff;  /* Warna latar belakang tombol */
+    color: white;         /* Warna teks tombol */
+    border: none;         /* Menghilangkan border default */
+    cursor: pointer;      /* Menambahkan kursor pointer */
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    transition: transform 0.2s ease-in-out, background-color 0.3s;  /* Animasi transisi */
+    margin: 10px;          /* Memberi jarak antar tombol */
+}
+
+/* Efek saat tombol disorot */
+.page-btn:hover {
+    background-color: #0056b3;  /* Mengubah warna latar belakang saat hover */
+    transform: scale(1.1);       /* Membuat tombol sedikit membesar saat hover */
+}
+
+/* Efek saat tombol diklik */
+.page-btn:active {
+    background-color: #004085;  /* Mengubah warna latar belakang saat tombol ditekan */
+}
+
 /* Styling for solve button */
 .solve-btn {
     padding: 0.5rem 1.5rem;
@@ -96,4 +121,6 @@ input {
     font-size: 1.2rem;
     font-weight: bold;
     color: #333;
+    max-height: 300px; /* Tentukan tinggi maksimal untuk #result */
+    overflow-y: auto;  /* Membuat hasil bisa digulir jika lebih dari max-height */
 }
