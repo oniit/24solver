@@ -17,6 +17,9 @@ input {
     margin: 0.5rem;
     padding: 0.5rem;
     font-size: 1rem;
+    max-width: 200px; /* Menentukan lebar maksimum */
+    width: 100%; /* Agar input memenuhi lebar yang tersedia dalam kontainer */
+    box-sizing: border-box; /* Agar padding tidak menambah lebar total */
 }
 button {
     padding: 0.5rem 1rem;

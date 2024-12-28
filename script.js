@@ -13,7 +13,7 @@ function solve24() {
 
     const solutions = findSolutions(nums, 24);
     document.getElementById('result').textContent = 
-        solutions.length > 0 ? `Solutions: ${solutions.join('\n')}` : 'No solutions found.';
+        solutions.length > 0 ? `Solutions:<br>${solutions.join('<br>')}` : 'No solutions found.';
 }
 
 function findSolutions(numbers, target) {
