@@ -10,7 +10,7 @@ function solve24() {
         document.getElementById('result').innerHTML = ''; // Clear previous results
         if (solutions.length > 0) {
             solutions.forEach(solution => {
-                const solutionElement = document.createElement('div');
+                const solutionElement = document.createElement('p');  // Gunakan <p> untuk baris baru
                 solutionElement.textContent = solution;
                 document.getElementById('result').appendChild(solutionElement);
             });
