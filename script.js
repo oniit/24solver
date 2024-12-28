@@ -7,7 +7,16 @@ function solve24() {
     ];
 
     if (nums.some(isNaN)) {
-        document.getElementById('result').textContent = 'Please enter valid numbers.';
+        document.getElementById('result').innerHTML = ''; // Clear previous results
+        if (solutions.length > 0) {
+            solutions.forEach(solution => {
+                const solutionElement = document.createElement('div');
+                solutionElement.textContent = solution;
+                document.getElementById('result').appendChild(solutionElement);
+            });
+        } else {
+            document.getElementById('result').textContent = 'No solutions found.';
+        }
         return;
     }
 
