@@ -10,10 +10,13 @@ function solve() {
 
     const possibleSolutions = [];
 
-    // Loop untuk mencoba semua kombinasi 4 digit angka
+    // Loop untuk mencoba semua kombinasi 4 digit angka yang memiliki angka unik
     for (let num = 0; num < 10000; num++) {
         const numStr = num.toString().padStart(4, "0");
         const numArr = numStr.split("").map(Number);
+
+        // Pastikan angka terdiri dari 4 digit yang berbeda
+        if (new Set(numArr).size !== 4) continue; // Jika ada angka yang sama, skip
 
         // Validasi kombinasi berdasarkan petunjuk
         let isValid = true;
@@ -82,11 +85,15 @@ function checkOneCorrect(numArr, clue) {
 function checkTwoWrong(numArr, clue) {
     let correctCount = 0;
     let wrongCount = 0;
+    
+    // Hitung posisi yang benar
     for (let i = 0; i < 4; i++) {
         if (numArr[i] === clue[i]) {
             correctCount++;
         }
     }
+
+    // Pastikan tidak ada posisi yang benar
     if (correctCount === 0) {
         for (let i = 0; i < 4; i++) {
             if (clue.includes(numArr[i]) && numArr[i] !== clue[i]) {
@@ -94,6 +101,7 @@ function checkTwoWrong(numArr, clue) {
             }
         }
     }
+
     return wrongCount === 2;
 }
 
@@ -101,11 +109,15 @@ function checkTwoWrong(numArr, clue) {
 function checkOneWrong(numArr, clue) {
     let correctCount = 0;
     let wrongCount = 0;
+
+    // Hitung posisi yang benar
     for (let i = 0; i < 4; i++) {
         if (numArr[i] === clue[i]) {
             correctCount++;
         }
     }
+
+    // Pastikan tidak ada posisi yang benar
     if (correctCount === 0) {
         for (let i = 0; i < 4; i++) {
             if (clue.includes(numArr[i]) && numArr[i] !== clue[i]) {
@@ -113,6 +125,7 @@ function checkOneWrong(numArr, clue) {
             }
         }
     }
+
     return wrongCount === 1;
 }
 

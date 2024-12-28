@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     background-color: #f4f4f9;
     height: 100vh;
     display: flex;
@@ -25,6 +25,10 @@ h1 {
     margin: 0;
 }
 
+h3 {
+    margin-top: 20px;
+}
+
 main {
     padding: 2rem;
 }
@@ -33,6 +37,12 @@ p {
     font-size: 1.2rem;
     margin-bottom: 20px;
     color: #333;
+}
+
+input {
+    padding: 5px;
+    margin: 5px;
+    font-size: 1rem;
 }
 
 .page-btn {
@@ -114,4 +124,11 @@ a button:hover {
 
 .back-btn:active {
     background-color: #545b62; /* Dark grey when clicked */
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
 }
