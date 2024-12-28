@@ -72,3 +72,46 @@ a button:hover {
     background-color: #218838;
     transform: translateY(-2px);
 }
+
+/* Styling for solve button */
+.solve-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    background-color: #28a745; /* Green for highlight */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.solve-btn:hover {
+    background-color: #218838; /* Darker green when hovered */
+    transform: scale(1.05);
+}
+
+.solve-btn:active {
+    background-color: #1e7e34; /* Even darker green when clicked */
+}
+
+/* Styling for back button */
+.back-btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background-color: #6c757d; /* Grey for a more subtle look */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #5a6268; /* Slightly darker grey */
+}
+
+.back-btn:active {
+    background-color: #545b62; /* Dark grey when clicked */
+}
