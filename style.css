@@ -25,10 +25,6 @@ h1 {
     margin: 0;
 }
 
-h3 {
-    margin-top: 20px;
-}
-
 main {
     padding: 2rem;
 }
@@ -45,49 +41,19 @@ input {
     font-size: 1rem;
 }
 
-.page-btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    margin: 10px;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
-}
-
-.page-btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-a {
-    text-decoration: none;
-}
-
-a button {
-    margin-top: 10px;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
-}
-
-a button:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
+/* Styling for the button wrapper to align buttons inline */
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add space between the buttons */
+    margin-top: 20px;
 }
 
 /* Styling for solve button */
 .solve-btn {
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
-    background-color: #28a745; /* Green for highlight */
+    background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
@@ -97,12 +63,12 @@ a button:hover {
 }
 
 .solve-btn:hover {
-    background-color: #218838; /* Darker green when hovered */
+    background-color: #218838;
     transform: scale(1.05);
 }
 
 .solve-btn:active {
-    background-color: #1e7e34; /* Even darker green when clicked */
+    background-color: #1e7e34;
 }
 
 /* Styling for back button */
@@ -110,20 +76,19 @@ a button:hover {
     display: inline-block;
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
-    background-color: #6c757d; /* Grey for a more subtle look */
+    background-color: #6c757d;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 1rem;
     transition: background-color 0.3s;
 }
 
 .back-btn:hover {
-    background-color: #5a6268; /* Slightly darker grey */
+    background-color: #5a6268;
 }
 
 .back-btn:active {
-    background-color: #545b62; /* Dark grey when clicked */
+    background-color: #545b62;
 }
 
 #result {
