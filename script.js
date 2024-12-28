@@ -26,6 +26,35 @@ function solve24() {
     }
 }
 
+function solveTarget() {
+    const nums = [
+        parseFloat(document.getElementById('num1').value),
+        parseFloat(document.getElementById('num2').value),
+        parseFloat(document.getElementById('num3').value),
+        parseFloat(document.getElementById('num4').value)
+    ];
+    const target = parseFloat(document.getElementById('target').value);
+
+    if (nums.some(isNaN) || isNaN(target)) {
+        document.getElementById('result').textContent = 'Please enter valid numbers.';
+        return;
+    }
+
+    const solutions = findSolutions(nums, target);
+    const resultContainer = document.getElementById('result');
+    resultContainer.innerHTML = ''; // Clear previous results
+
+    if (solutions.length > 0) {
+        solutions.forEach(solution => {
+            const solutionElement = document.createElement('p');  // Use <p> for new line
+            solutionElement.textContent = solution;
+            resultContainer.appendChild(solutionElement);
+        });
+    } else {
+        resultContainer.textContent = 'No solutions found.';
+    }
+}
+
 function findSolutions(numbers, target) {
     const ops = ['+', '-', '*', '/'];
     const results = [];

@@ -17,9 +17,6 @@ input {
     margin: 0.5rem;
     padding: 0.5rem;
     font-size: 1rem;
-    max-width: 200px; /* Menentukan lebar maksimum */
-    width: 100%; /* Agar input memenuhi lebar yang tersedia dalam kontainer */
-    box-sizing: border-box; /* Agar padding tidak menambah lebar total */
 }
 button {
     padding: 0.5rem 1rem;
@@ -35,19 +32,4 @@ button:hover {
 #result {
     margin-top: 2rem;
     font-size: 1.2rem;
-}
-
-#result p {
-    margin: 0.5rem 0;
-    padding: 0.8rem;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-#result p:hover {
-    background-color: #e7f7ff;
-    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
 }
