@@ -18,7 +18,6 @@ header {
     text-align: center;
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 2rem;
 }
   
 .header-container {
@@ -151,13 +150,13 @@ input {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 30px;
+    width: 50px;
     text-align: center;
     margin-bottom: 10px;
 }
 
 input.long {
-    width: 200px;
+    width: 280px;
 }
 
 .button-wrapper {
@@ -240,7 +239,7 @@ input.long {
       padding: 10px;
     }
 
-    header {
+    h1 {
         font-size: 1rem;
       }
 
@@ -251,7 +250,7 @@ input.long {
     }
 
     .category {
-        width: 100%;
+        width: 85%;
         margin-bottom: 20px;
     }
 
@@ -261,7 +260,7 @@ input.long {
     }
 
     input {
-        width: 60px;
+        width: 40px;
     }
 
     label {
