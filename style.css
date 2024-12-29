@@ -256,17 +256,18 @@ input.long {
         margin-bottom: 20px;
     }
     
-
-    /* .clue-group {
-        flex-direction: column;
-        align-items: center;
-    } */
+    .clue-group {
+        flex-direction: row; /* Pastikan input tetap sejajar dalam satu baris */
+        justify-content: flex-start; /* Menjaga input tetap sejajar kiri */
+        gap: 10px; /* Mengatur jarak antar input */
+        flex-wrap: wrap; /* Jika input terlalu panjang, input akan dibungkus ke baris berikutnya */
+    }
+    
+    label {
+        width: auto;
+    }
 
     input {
         width: 50px;
-    }
-
-    label {
-        width: auto;
     }
 } 
