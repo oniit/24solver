@@ -4,40 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clue Solver</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- CSS lama -->
 </head>
 <body>
     <header>
         <h1>Clue Solver</h1>
     </header>
     <main>
-        <form id="solveForm">
-            <div id="clue-inputs">
-                <!-- Input untuk clue 1 hingga clue 5 -->
-                <div class="clue" id="clue1">
-                    <label for="clue1-input">Clue 1 (4 numbers and clue type):</label>
-                    <input type="number" class="clue-input" id="clue1-num1" placeholder="Number 1">
-                    <input type="number" class="clue-input" id="clue1-num2" placeholder="Number 2">
-                    <input type="number" class="clue-input" id="clue1-num3" placeholder="Number 3">
-                    <input type="number" class="clue-input" id="clue1-num4" placeholder="Number 4">
-                    <select id="clue1-type">
-                        <option value="2 benar">2 benar</option>
-                        <option value="1 benar">1 benar</option>
-                        <option value="2 salah">2 salah</option>
-                        <option value="1 salah">1 salah</option>
-                        <option value="0 benar">0 benar</option>
-                    </select>
-                </div>
-                <!-- Input lainnya untuk clue 2 hingga clue 5 -->
-                <!-- (gunakan pola yang sama untuk clue berikutnya, seperti clue2, clue3, dll.) -->
+        <p>Masukkan clue dalam format angka (misalnya: 1 2 3 4) dan tipe clue (misalnya: 2 benar, 1 benar, dst).</p>
+        
+        <form id="clueForm">
+            <div class="clue">
+                <label for="clue1">Clue 1 (2 benar):</label>
+                <input type="number" id="clue1-1" required>
+                <input type="number" id="clue1-2" required>
+                <input type="number" id="clue1-3" required>
+                <input type="number" id="clue1-4" required>
             </div>
+
+            <div class="clue">
+                <label for="clue2">Clue 2 (1 benar):</label>
+                <input type="number" id="clue2-1" required>
+                <input type="number" id="clue2-2" required>
+                <input type="number" id="clue2-3" required>
+                <input type="number" id="clue2-4" required>
+            </div>
+
+            <div class="clue">
+                <label for="clue3">Clue 3 (2 salah):</label>
+                <input type="number" id="clue3-1" required>
+                <input type="number" id="clue3-2" required>
+                <input type="number" id="clue3-3" required>
+                <input type="number" id="clue3-4" required>
+            </div>
+
+            <div class="clue">
+                <label for="clue4">Clue 4 (1 salah):</label>
+                <input type="number" id="clue4-1" required>
+                <input type="number" id="clue4-2" required>
+                <input type="number" id="clue4-3" required>
+                <input type="number" id="clue4-4" required>
+            </div>
+
+            <div class="clue">
+                <label for="clue5">Clue 5 (0 benar):</label>
+                <input type="number" id="clue5-1" required>
+                <input type="number" id="clue5-2" required>
+                <input type="number" id="clue5-3" required>
+                <input type="number" id="clue5-4" required>
+            </div>
+
+            <br>
             <div class="button-wrapper">
                 <a href="index.html" class="back-btn">Back</a>
-                <button type="submit" class="solve-btn">Solve</button>
+                <button type="button" class="solve-btn" onclick="solveGame()">Solve</button>
             </div>
         </form>
+
         <div id="result"></div>
     </main>
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link ke script.js -->
 </body>
 </html>
