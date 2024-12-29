@@ -8,7 +8,11 @@
 </head>
 <body>
     <header>
-        <h1>Clue Solver</h1>
+        <div class="header-container header-container-center">
+            <h1>Clue Solver</h1>
+            <img src="img/iconw.png" alt="Logo" class="logo">
+            <h1>by Mathifyx</h1>
+        </div>
     </header>
     <main>
         <div id="instructions">
@@ -17,47 +21,51 @@
           <form id="clueForm">
             <div id="clueInputs">
               <div class="clue-group">
-                <label>Dua angka benar di posisi benar:</label>
+                <label>Two correct numbers in correct positions:</label>
                 <input type="number" min="0" max="9" id="clue0-0" required>
                 <input type="number" min="0" max="9" id="clue0-1" required>
                 <input type="number" min="0" max="9" id="clue0-2" required>
                 <input type="number" min="0" max="9" id="clue0-3" required>
               </div>
               <div class="clue-group">
-                <label>Satu angka benar di posisi benar:</label>
+                <label>One correct number in the correct position:</label>
                 <input type="number" min="0" max="9" id="clue1-0" required>
                 <input type="number" min="0" max="9" id="clue1-1" required>
                 <input type="number" min="0" max="9" id="clue1-2" required>
                 <input type="number" min="0" max="9" id="clue1-3" required>
               </div>
               <div class="clue-group">
-                <label>Dua angka benar di posisi salah:</label>
+                <label>Two correct numbers in wrong positions:</label>
                 <input type="number" min="0" max="9" id="clue2-0" required>
                 <input type="number" min="0" max="9" id="clue2-1" required>
                 <input type="number" min="0" max="9" id="clue2-2" required>
                 <input type="number" min="0" max="9" id="clue2-3" required>
               </div>
               <div class="clue-group">
-                <label>Satu angka benar di posisi salah:</label>
+                <label>One correct number in the wrong position:</label>
                 <input type="number" min="0" max="9" id="clue3-0" required>
                 <input type="number" min="0" max="9" id="clue3-1" required>
                 <input type="number" min="0" max="9" id="clue3-2" required>
                 <input type="number" min="0" max="9" id="clue3-3" required>
               </div>
               <div class="clue-group">
-                <label>Tidak ada angka yang benar:</label>
+                <label>No correct numbers:</label>
                 <input type="number" min="0" max="9" id="clue4-0" required>
                 <input type="number" min="0" max="9" id="clue4-1" required>
                 <input type="number" min="0" max="9" id="clue4-2" required>
                 <input type="number" min="0" max="9" id="clue4-3" required>
               </div>
+              <div class="button-wrapper">
+                <a href="index.html" class="back-btn">Back</a>
+                <button type="submit" id="solveButton" class="solve-btn">Solve</button>
+              </div>
             </div>
-            <br>
-            <a href="index.html" class="back-btn">Back</a>
-            <button type="submit" id="solveButton" class="solve-btn">Solve</button>
           </form>
           <pre id="result"></pre>
     </main>
     <script src="script.js"></script>
 </body>
+<footer class="footer">
+    <p2>&copy; 2024 Mathifyx. All rights reserved.</p2>
+</footer>
 </html>

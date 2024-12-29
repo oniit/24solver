@@ -7,32 +7,41 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-start; /* space-between */
     align-items: center;
 }
 
 header {
     background-color: #4a90e2;
     color: white;
-    padding: 1rem;
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Header container yang umum */
 .header-container {
     display: flex;
-    align-items: center; /* Sejajarkan logo dan judul secara vertikal */
-    justify-content: flex-start; /* Letakkan elemen di awal (kiri) */
-    padding: 20px; /* Opsional: Tambahkan padding untuk spasi */
+    align-items: center;
+}
+
+/* Untuk header dengan justify-content: center */
+.header-container-center {
+    justify-content: center;
+}
+
+/* Untuk header dengan justify-content: flex-start */
+.header-container-flex-start {
+    justify-content: flex-start;
+    padding-left: 15px;
+    margin: 15px;
 }
 
 .logo {
-    height: 60px; /* Atur tinggi logo sesuai kebutuhan */
+    height: 50px; /* Atur tinggi logo sesuai kebutuhan */
     width: auto; /* Jaga proporsi logo */
-    margin-right: 15px; /* Jarak antara logo dan teks */
-    margin-left: 15px;
+    margin: 10px;
 }
 
 h1 {
@@ -44,11 +53,12 @@ h1 {
 main {
     padding: 2rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background-color: white;
+    flex-grow: 1;
 }
 
 p {
@@ -96,33 +106,75 @@ ul li {
     font-size: 1rem;
     color: #333;
 }
-/*
+
+#clueForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Menjaga form agar terpusat secara horizontal */
+    gap: 20px;
+    width: 100%;
+    max-width: 600px; /* Membatasi lebar form agar tidak terlalu lebar */
+    margin: 0 auto; /* Menjaga form agar terpusat di tengah halaman */
+}
+
+.clue-group {
+    display: flex;
+    justify-content: center; /* Menjaga label dan input tetap di tengah */
+    align-items: center;
+    gap: 10px; /* Spasi antar label dan input */
+    width: 100%;
+}
+
+label {
+    flex-shrink: 0; /* Label tetap dengan lebar yang sesuai */
+    text-align: left; /* Menjaga agar label rata kiri */
+    width: 250px; /* Menentukan lebar label agar tidak melebar */
+}
+
 input {
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: calc(100% - 20px);
-    margin-bottom: 20px;
+    width: 50px; /* Atur lebar input sesuai kebutuhan */
+    text-align: center; /* Teks di dalam input tetap rata tengah */
+    margin-bottom: 10px;
 }
 
-input {
-    padding: 5px;
-    margin: 5px;
-    font-size: 3rem;
-} */
+---
+/* Styling untuk form dan input */
+#clueForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.clue-group {
+    display: flex;
+    justify-content: center; /* Ini akan membuat label dan input berada di ujung kiri dan kanan */
+    align-items: center;
+    gap: 10px; /* Spasi antar label dan input */
+}
+
+label {
+    flex-shrink: 0; /* Label tetap dengan lebar yang sesuai */
+    text-align: left; /* Menjaga agar label rata kiri */
+    width: 310px; /* Menentukan lebar label agar tidak melebar */
+}
 
 input {
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 50px; /* Atur lebar spesifik */
-    display: inline-block; /* Pastikan input tidak memakan satu baris penuh */
-    margin-right: 10px; /* Tambahkan jarak antar input jika ada */
-    margin-bottom: 0; /* Hilangkan margin bawah */
+    width: 50px; /* Atur lebar input sesuai kebutuhan */
+    text-align: center; /* Teks di dalam input tetap rata tengah */
+    margin-bottom: 10px;
 }
 
+input.long {
+    width: 280px; /* Override width hanya untuk input tertentu */
+}
 
 .button-wrapper {
     display: flex;
@@ -146,6 +198,7 @@ input {
 .page-btn {
     background-color: #007bff;
     color: white;
+    width: 200px;
 }
 
 .page-btn:hover {
@@ -193,6 +246,7 @@ input {
     overflow-y: auto;
 }
 
+/* Responsif jika lebar layar kecil */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -203,4 +257,34 @@ input {
         width: 100%;
         margin-bottom: 20px;
     }
+
+    .clue-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input {
+        width: 60px;
+    }
+
+    label {
+        width: auto; /* Agar label menyesuaikan ukuran */
+    }
+}
+
+/* Styling footer */
+footer {
+    background-color: #4a90e2;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    color: white;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+p2 {
+    size: 1rem;
+    color: white;
 }

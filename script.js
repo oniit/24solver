@@ -185,6 +185,6 @@ function checkClue(guess, clue) {
     }
   
     document.getElementById("result").textContent =
-      solutions.length > 0 ? `Solution found:\n${solutions.join("\n")}` : "No solution found.";
+      solutions.length > 0 ? `${solutions.join("\n")}` : "No solution found.";
   });
   

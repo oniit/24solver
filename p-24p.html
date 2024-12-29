@@ -8,7 +8,11 @@
 </head>
 <body>
     <header>
-        <h1>24+ Solver</h1>
+        <div class="header-container header-container-center">
+            <h1>24+ Solver</h1>
+            <img src="img/iconw.png" alt="Logo" class="logo">
+            <h1>by Mathifyx</h1>
+        </div>
     </header>
     <main>
         <p>Input 4 numbers and a target number!</p>
@@ -17,9 +21,8 @@
             <input type="number" id="num2" min="0" max="9">
             <input type="number" id="num3" min="0" max="9">
             <input type="number" id="num4" min="0" max="9">
-            <br><input type="number" id="target" placeholder="Target number">
+            <br><input type="number" id="target" placeholder="Target number" class="long">
         </div>
-        <br>
         <div class="button-wrapper">
             <a href="index.html" class="back-btn">Back</a>
             <button class="solve-btn" onclick="solveTarget()">Solve</button>
@@ -28,4 +31,7 @@
     </main>
     <script src="script.js"></script>
 </body>
+<footer class="footer">
+    <p2>&copy; 2024 Mathifyx. All rights reserved.</p2>
+</footer>
 </html>
