@@ -117,58 +117,58 @@ function findSolutions(numbers, target) {
 
 // CLUE SOLVER
 
-// Fungsi untuk memeriksa clue
-function checkClue(guess, clue) {
-    const [numbers, clueType] = clue;
-    if (clueType === "0 benar") {
-      return guess.every(num => !numbers.includes(num));
-    } else if (clueType === "2 benar") {
-      return guess.filter((num, i) => num === numbers[i]).length === 2;
-    } else if (clueType === "1 benar") {
-      return guess.filter((num, i) => num === numbers[i]).length === 1;
-    } else if (clueType === "2 salah") {
-      return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 2;
-    } else if (clueType === "1 salah") {
-      return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 1;
-    }
-    return false;
-  }
+// // Fungsi untuk memeriksa clue
+// function checkClue(guess, clue) {
+//     const [numbers, clueType] = clue;
+//     if (clueType === "0 benar") {
+//       return guess.every(num => !numbers.includes(num));
+//     } else if (clueType === "2 benar") {
+//       return guess.filter((num, i) => num === numbers[i]).length === 2;
+//     } else if (clueType === "1 benar") {
+//       return guess.filter((num, i) => num === numbers[i]).length === 1;
+//     } else if (clueType === "2 salah") {
+//       return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 2;
+//     } else if (clueType === "1 salah") {
+//       return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 1;
+//     }
+//     return false;
+//   }
   
-  // Fungsi untuk memproses form dan mencari solusi
-  function solveGame() {
-    // Ambil input dari form
-    const clues = [];
+//   // Fungsi untuk memproses form dan mencari solusi
+//   function solveGame() {
+//     // Ambil input dari form
+//     const clues = [];
     
-    for (let i = 1; i <= 5; i++) {
-        const clueNumbers = [
-            parseInt(document.getElementById(`clue${i}-1`).value, 10),
-            parseInt(document.getElementById(`clue${i}-2`).value, 10),
-            parseInt(document.getElementById(`clue${i}-3`).value, 10),
-            parseInt(document.getElementById(`clue${i}-4`).value, 10)
-        ];
-        const clueType = document.querySelector(`#clue${i} label`).textContent.split(" ")[1];
-        clues.push([clueNumbers, clueType]);
-    }
+//     for (let i = 1; i <= 5; i++) {
+//         const clueNumbers = [
+//             parseInt(document.getElementById(`clue${i}-1`).value, 10),
+//             parseInt(document.getElementById(`clue${i}-2`).value, 10),
+//             parseInt(document.getElementById(`clue${i}-3`).value, 10),
+//             parseInt(document.getElementById(`clue${i}-4`).value, 10)
+//         ];
+//         const clueType = document.querySelector(`#clue${i} label`).textContent.split(" ")[1];
+//         clues.push([clueNumbers, clueType]);
+//     }
   
-    // Fungsi untuk menghasilkan semua permutasi
-    const permutations = (arr, size) => {
-        if (size === 1) return arr.map(el => [el]);
-        const result = [];
-        arr.forEach((el, i) => {
-            const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
-            permutations(rest, size - 1).forEach(perm => result.push([el, ...perm]));
-        });
-        return result;
-    };
+//     // Fungsi untuk menghasilkan semua permutasi
+//     const permutations = (arr, size) => {
+//         if (size === 1) return arr.map(el => [el]);
+//         const result = [];
+//         arr.forEach((el, i) => {
+//             const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
+//             permutations(rest, size - 1).forEach(perm => result.push([el, ...perm]));
+//         });
+//         return result;
+//     };
   
-    // Cari semua permutasi
-    const allPermutations = permutations([...Array(10).keys()], 4);
-    const solutions = allPermutations.filter(perm =>
-        clues.every(clue => checkClue(perm, clue))
-    );
+//     // Cari semua permutasi
+//     const allPermutations = permutations([...Array(10).keys()], 4);
+//     const solutions = allPermutations.filter(perm =>
+//         clues.every(clue => checkClue(perm, clue))
+//     );
   
-    const resultContainer = document.getElementById("result");
-    resultContainer.innerHTML = solutions.length
-      ? `Solution found: ${solutions[0].join(", ")}`
-      : "No solution found.";
-}
+//     const resultContainer = document.getElementById("result");
+//     resultContainer.innerHTML = solutions.length
+//       ? `Solution found: ${solutions[0].join(", ")}`
+//       : "No solution found.";
+// }
