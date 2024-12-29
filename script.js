@@ -135,19 +135,20 @@ function checkClue(guess, clue) {
   }
   
   // Fungsi untuk memproses form dan mencari solusi
-  function solveGame() {
+  
+  function solveGame(event) {
+    event.preventDefault();
     const clues = [];
     
     for (let i = 1; i <= 5; i++) {
-        const clueNumbers = [
-            parseInt(document.getElementById(`clue${i}-1`).value, 10),
-            parseInt(document.getElementById(`clue${i}-2`).value, 10),
-            parseInt(document.getElementById(`clue${i}-3`).value, 10),
-            parseInt(document.getElementById(`clue${i}-4`).value, 10)
-        ];
-        const clueType = document.querySelector(`#clue${i} label`).textContent.split(" ")[1];
-        console.log(`Clue ${i}:`, clueNumbers, clueType); // Debugging line
-        clues.push([clueNumbers, clueType]);
+      const clueNumbers = [
+        parseInt(document.getElementById(`clue${i}-1`).value, 10),
+        parseInt(document.getElementById(`clue${i}-2`).value, 10),
+        parseInt(document.getElementById(`clue${i}-3`).value, 10),
+        parseInt(document.getElementById(`clue${i}-4`).value, 10)
+      ];
+      const clueType = document.querySelector(`#clue${i} label`).textContent.split(" ")[1];
+      clues.push([clueNumbers, clueType]);
     }
   
     // Fungsi untuk menghasilkan semua permutasi
