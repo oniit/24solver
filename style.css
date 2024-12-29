@@ -23,20 +23,21 @@ header {
 
 .header-container {
     display: flex;
-    align-items: center; /* Untuk meratakan logo dan teks secara vertikal */
-    justify-content: center; /* Untuk memusatkan kontainer */
-    gap: 15px; /* Jarak antara logo dan teks */
+    align-items: center; /* Sejajarkan logo dan judul secara vertikal */
+    justify-content: flex-start; /* Letakkan elemen di awal (kiri) */
+    padding: 20px; /* Opsional: Tambahkan padding untuk spasi */
 }
 
 .logo {
-    height: 50px; /* Atur tinggi logo sesuai teks */
-    width: auto; /* Pertahankan proporsi logo */
+    height: 60px; /* Atur tinggi logo sesuai kebutuhan */
+    width: auto; /* Jaga proporsi logo */
+    margin-right: 15px; /* Jarak antara logo dan teks */
 }
 
 h1 {
-    font-size: 2rem; /* Sesuaikan ukuran teks */
+    font-size: 2rem; /* Sesuaikan ukuran judul */
+    color: #333; /* Warna teks */
     margin: 0;
-    color: #333;
 }
 
 main {
