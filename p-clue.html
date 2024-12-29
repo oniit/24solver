@@ -11,58 +11,31 @@
         <h1>Clue Solver</h1>
     </header>
     <main>
-        <p>Input your guess and the clues to find the solution!</p>
-        
-        <!-- Form input untuk clue -->
-        <div class="clue1">
-            <label>Dua angka benar di posisi benar:</label><br>
-            <input type="number" placeholder="Clue 1 Number 1">
-            <input type="number" placeholder="Clue 1 Number 2">
-            <input type="number" placeholder="Clue 1 Number 3">
-            <input type="number" placeholder="Clue 1 Number 4">
-            <span class="clue-type">2 benar</span>
-        </div>
-        <div class="clue2">
-            <label>Satu angka benar di posisi benar:</label><br>
-            <input type="number" placeholder="Clue 2 Number 1">
-            <input type="number" placeholder="Clue 2 Number 2">
-            <input type="number" placeholder="Clue 2 Number 3">
-            <input type="number" placeholder="Clue 2 Number 4">
-            <span class="clue-type">1 benar</span>
-        </div>
-        <div class="clue3">
-            <label>Dua angka benar di posisi salah:</label><br>
-            <input type="number" placeholder="Clue 3 Number 1">
-            <input type="number" placeholder="Clue 3 Number 2">
-            <input type="number" placeholder="Clue 3 Number 3">
-            <input type="number" placeholder="Clue 3 Number 4">
-            <span class="clue-type">2 salah</span>
-        </div>
-        <div class="clue4">
-            <label>Satu angka benar di posisi salah:</label><br>
-            <input type="number" placeholder="Clue 4 Number 1">
-            <input type="number" placeholder="Clue 4 Number 2">
-            <input type="number" placeholder="Clue 4 Number 3">
-            <input type="number" placeholder="Clue 4 Number 4">
-            <span class="clue-type">1 salah</span>
-        </div>
-        <div class="clue5">
-            <label>Tidak ada angka yang benar:</label><br>
-            <input type="number" placeholder="Clue 5 Number 1">
-            <input type="number" placeholder="Clue 5 Number 2">
-            <input type="number" placeholder="Clue 5 Number 3">
-            <input type="number" placeholder="Clue 5 Number 4">
-            <span class="clue-type">0 benar</span>
-        </div>
-        
-        <!-- Tombol untuk solve dan back -->
-        <br>
-        <div class="button-wrapper">
-            <a href="index.html" class="back-btn">Back</a>
-            <button class="solve-btn">Solve</button>
-        </div>
-
-        <!-- Tempat untuk menampilkan hasil -->
+        <form id="solveForm">
+            <div id="clue-inputs">
+                <!-- Input untuk clue 1 hingga clue 5 -->
+                <div class="clue" id="clue1">
+                    <label for="clue1-input">Clue 1 (4 numbers and clue type):</label>
+                    <input type="number" class="clue-input" id="clue1-num1" placeholder="Number 1">
+                    <input type="number" class="clue-input" id="clue1-num2" placeholder="Number 2">
+                    <input type="number" class="clue-input" id="clue1-num3" placeholder="Number 3">
+                    <input type="number" class="clue-input" id="clue1-num4" placeholder="Number 4">
+                    <select id="clue1-type">
+                        <option value="2 benar">2 benar</option>
+                        <option value="1 benar">1 benar</option>
+                        <option value="2 salah">2 salah</option>
+                        <option value="1 salah">1 salah</option>
+                        <option value="0 benar">0 benar</option>
+                    </select>
+                </div>
+                <!-- Input lainnya untuk clue 2 hingga clue 5 -->
+                <!-- (gunakan pola yang sama untuk clue berikutnya, seperti clue2, clue3, dll.) -->
+            </div>
+            <div class="button-wrapper">
+                <a href="index.html" class="back-btn">Back</a>
+                <button type="submit" class="solve-btn">Solve</button>
+            </div>
+        </form>
         <div id="result"></div>
     </main>
     <script src="script.js"></script>

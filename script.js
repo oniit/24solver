@@ -120,66 +120,128 @@ function findSolutions(numbers, target) {
 
 document.addEventListener("DOMContentLoaded", () => {
     // Fungsi untuk memeriksa clue
-    function checkClue() {
-      const guess = [
-        parseInt(document.getElementById("num1").value),
-        parseInt(document.getElementById("num2").value),
-        parseInt(document.getElementById("num3").value),
-        parseInt(document.getElementById("num4").value)
-      ];
+    function checkClue(guess, clue) {
+      const [numbers, clueType] = clue;
+  
+      // Jika 0 benar, langsung cek duluan
+      if (clueType === "0 benar") {
+        return guess.every(num => !numbers.includes(num));
+      } else if (clueType === "2 benar") {
+        return guess.filter((num, i) => num === numbers[i]).length === 2;
+      } else if (clueType === "1 benar") {
+        return guess.filter((num, i) => num === numbers[i]).length === 1;
+      } else if (clueType === "2 salah") {
+        return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 2;
+      } else if (clueType === "1 salah") {
+        return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 1;
+      }
+      return false;
+    }
+  
+    // Fungsi untuk menghasilkan semua permutasi
+    function permutations(arr, size) {
+      if (size === 1) return arr.map(el => [el]);
+      const result = [];
+      arr.forEach((el, i) => {
+        const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
+        permutations(rest, size - 1).forEach(perm => result.push([el, ...perm]));
+      });
+      return result;
+    }
+  
+    // Proses form dan ambil data clue
+    document.getElementById("solveForm").addEventListener("submit", event => {
+      event.preventDefault();
   
       const clues = [];
+      // Mengambil clue dari form
       for (let i = 1; i <= 5; i++) {
-        const clueNumbers = Array.from(
-          document.querySelectorAll(`.clue${i} input[type="number"]`)
-        ).map(input => parseInt(input.value, 10));
-        const clueType = document.querySelector(`.clue${i} .clue-type`).textContent.trim();
-        clues.push([clueNumbers, clueType]);
-      }
-  
-      // Fungsi untuk memeriksa tiap clue dengan tebakan
-      function checkClueMatch(guess, clue) {
-        const [numbers, clueType] = clue;
-        if (clueType === "0 benar") {
-            return guess.every(num => !numbers.includes(num));
-        } else if (clueType === "2 benar") {
-          return guess.filter((num, i) => num === numbers[i]).length === 2;
-        } else if (clueType === "1 benar") {
-          return guess.filter((num, i) => num === numbers[i]).length === 1;
-        } else if (clueType === "2 salah") {
-          return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 2;
-        } else if (clueType === "1 salah") {
-          return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 1;
-        }
-        return false;
-      }
-  
-      // Fungsi untuk menghasilkan semua permutasi
-      function permutations(arr, size) {
-        if (size === 1) return arr.map(el => [el]);
-        const result = [];
-        arr.forEach((el, i) => {
-          const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
-          permutations(rest, size - 1).forEach(perm => result.push([el, ...perm]));
-        });
-        return result;
+        const numbers = [
+          parseInt(document.getElementById(`clue${i}-num1`).value, 10),
+          parseInt(document.getElementById(`clue${i}-num2`).value, 10),
+          parseInt(document.getElementById(`clue${i}-num3`).value, 10),
+          parseInt(document.getElementById(`clue${i}-num4`).value, 10),
+        ];
+        const clueType = document.getElementById(`clue${i}-type`).value.trim();
+        clues.push([numbers, clueType]);
       }
   
       // Coba semua kemungkinan
       const allPermutations = permutations([...Array(10).keys()], 4);
       const solutions = allPermutations.filter(perm =>
-        clues.every(clue => checkClueMatch(perm, clue))
+        clues.every(clue => checkClue(perm, clue))
       );
   
       const resultContainer = document.getElementById("result");
       resultContainer.innerHTML = solutions.length
         ? `Solution found: ${solutions[0].join(", ")}`
         : "No solution found.";
-    }
-  
-    // Menambahkan event listener pada tombol solve
-    document.querySelector(".solve-btn").addEventListener("click", checkClue);
+    });
   });
+  
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Fungsi untuk memeriksa clue
+//     function checkClue() {
+//       const guess = [
+//         parseInt(document.getElementById("num1").value),
+//         parseInt(document.getElementById("num2").value),
+//         parseInt(document.getElementById("num3").value),
+//         parseInt(document.getElementById("num4").value)
+//       ];
+  
+//       const clues = [];
+//       for (let i = 1; i <= 5; i++) {
+//         const clueNumbers = Array.from(
+//           document.querySelectorAll(`.clue${i} input[type="number"]`)
+//         ).map(input => parseInt(input.value, 10));
+//         const clueType = document.querySelector(`.clue${i} .clue-type`).textContent.trim();
+//         clues.push([clueNumbers, clueType]);
+//       }
+  
+//       // Fungsi untuk memeriksa tiap clue dengan tebakan
+//       function checkClueMatch(guess, clue) {
+//         const [numbers, clueType] = clue;
+//         if (clueType === "0 benar") {
+//             return guess.every(num => !numbers.includes(num));
+//         } else if (clueType === "2 benar") {
+//           return guess.filter((num, i) => num === numbers[i]).length === 2;
+//         } else if (clueType === "1 benar") {
+//           return guess.filter((num, i) => num === numbers[i]).length === 1;
+//         } else if (clueType === "2 salah") {
+//           return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 2;
+//         } else if (clueType === "1 salah") {
+//           return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 1;
+//         }
+//         return false;
+//       }
+  
+//       // Fungsi untuk menghasilkan semua permutasi
+//       function permutations(arr, size) {
+//         if (size === 1) return arr.map(el => [el]);
+//         const result = [];
+//         arr.forEach((el, i) => {
+//           const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
+//           permutations(rest, size - 1).forEach(perm => result.push([el, ...perm]));
+//         });
+//         return result;
+//       }
+  
+//       // Coba semua kemungkinan
+//       const allPermutations = permutations([...Array(10).keys()], 4);
+//       const solutions = allPermutations.filter(perm =>
+//         clues.every(clue => checkClueMatch(perm, clue))
+//       );
+  
+//       const resultContainer = document.getElementById("result");
+//       resultContainer.innerHTML = solutions.length
+//         ? `Solution found: ${solutions[0].join(", ")}`
+//         : "No solution found.";
+//     }
+  
+//     // Menambahkan event listener pada tombol solve
+//     document.querySelector(".solve-btn").addEventListener("click", checkClue);
+//   });
   
 
 // function checkClue(guess, clue, correctPosition, wrongPosition) {
