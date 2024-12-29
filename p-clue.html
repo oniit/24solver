@@ -10,25 +10,74 @@
     <h1>Clue Solver</h1>
     <div>
         <h3>Input Clues:</h3>
-        <label>2 angka benar posisi benar:</label>
-        <input type="text" id="clue-1" placeholder="e.g. 8,2,9,0"><br>
+        <form id="solveForm">
+        <!-- Clue 1 -->
+        <div class="clue clue1">
+            <label>Clue 1 (2 angka benar di posisi salah):</label><br>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <span class="clue-type">2 salah</span>
+        </div>
+        <br>
 
-        <label>1 angka benar posisi benar:</label>
-        <input type="text" id="clue-2" placeholder="e.g. 2,4,0,6"><br>
+        <!-- Clue 2 -->
+        <div class="clue clue2">
+            <label>Clue 2 (1 angka benar di posisi salah):</label><br>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <span class="clue-type">1 salah</span>
+        </div>
+        <br>
 
-        <label>2 angka benar posisi salah:</label>
-        <input type="text" id="clue-3" placeholder="e.g. 2,7,0,8"><br>
+        <!-- Clue 3 -->
+        <div class="clue clue3">
+            <label>Clue 3 (2 angka benar di posisi benar):</label><br>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <span class="clue-type">2 benar</span>
+        </div>
+        <br>
 
-        <label>1 angka benar posisi salah:</label>
-        <input type="text" id="clue-4" placeholder="e.g. 3,6,1,4"><br>
+        <!-- Clue 4 -->
+        <div class="clue clue4">
+            <label>Clue 4 (Tidak ada angka yang benar):</label><br>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <span class="clue-type">0 benar</span>
+        </div>
+        <br>
 
-        <label>Tidak ada angka yang benar:</label>
-        <input type="text" id="clue-5" placeholder="e.g. 1,6,5,2"><br>
+        <!-- Clue 5 -->
+        <div class="clue clue5">
+            <label>Clue 5 (1 angka benar di posisi benar):</label><br>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <input type="number" min="0" max="9" required>
+            <span class="clue-type">1 benar</span>
+        </div>
+    <br>
 
+    <button type="submit">Solve</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+    
+    
         <br>
         <div class="button-wrapper">
             <a href="index.html" class="back-btn">Back</a>
-            <button class="solve-btn" onclick="solveClue()">Solve</button>
+            <button class="solve-btn" onclick="checkClue()">Solve</button>
         </div>
         <div id="result"></div>
     </div>
