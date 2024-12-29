@@ -172,9 +172,3 @@ function checkClue(guess, clue) {
       ? `Solution found: ${solutions[0].join(", ")}`
       : "No solution found.";
 }
-
-// Menambahkan event listener pada tombol Solve
-document.querySelector('.solve-btn').addEventListener('click', function(event) {
-    event.preventDefault(); // Mencegah form reload
-    solveGame(); // Panggil fungsi solveGame ketika tombol diklik
-});
