@@ -35,37 +35,10 @@ p {
     color: #333;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.category {
-    width: 45%; /* Set each category width to 45% to leave space between them */
-}
-
-.category h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    margin: 10px 0;
-}
-
 input {
     padding: 5px;
     margin: 5px;
-    font-size: 3rem;
+    font-size: 1rem;
 }
 
 /* Styling for the button wrapper to align buttons inline */
@@ -78,27 +51,27 @@ input {
 
 /* Styling untuk tombol di halaman utama */
 .page-btn {
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    border-radius: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.2s ease-in-out, background-color 0.3s;
-    margin: 10px 0;
+    padding: 1rem 2rem;  /* Menambah padding agar tombol lebih besar */
+    font-size: 1.5rem;    /* Membuat teks tombol lebih besar */
+    border-radius: 10px;  /* Membuat sudut tombol lebih bulat */
+    background-color: #007bff;  /* Warna latar belakang tombol */
+    color: white;         /* Warna teks tombol */
+    border: none;         /* Menghilangkan border default */
+    cursor: pointer;      /* Menambahkan kursor pointer */
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    transition: transform 0.2s ease-in-out, background-color 0.3s;  /* Animasi transisi */
+    margin: 10px;          /* Memberi jarak antar tombol */
 }
 
 /* Efek saat tombol disorot */
 .page-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
+    background-color: #0056b3;  /* Mengubah warna latar belakang saat hover */
+    transform: scale(1.1);       /* Membuat tombol sedikit membesar saat hover */
 }
 
 /* Efek saat tombol diklik */
 .page-btn:active {
-    background-color: #004085;
+    background-color: #004085;  /* Mengubah warna latar belakang saat tombol ditekan */
 }
 
 /* Styling for solve button */
@@ -150,16 +123,4 @@ input {
     color: #333;
     max-height: 300px; /* Tentukan tinggi maksimal untuk #result */
     overflow-y: auto;  /* Membuat hasil bisa digulir jika lebih dari max-height */
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .category {
-        width: 80%; /* Make categories take more space on smaller screens */
-        margin-bottom: 20px;
-    }
 }

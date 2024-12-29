@@ -153,13 +153,13 @@ function checkClue(guess, clue) {
         const value = document.getElementById(`clue${i}-${j}`).value;
         
         if (value === "") {
-          document.getElementById("output").textContent = "Please fill all the fields.";
+          document.getElementById("result").textContent = "Please fill all the fields.";
           return; // Stop jika ada input kosong
         }
   
         const number = Number(value);
         if (isNaN(number) || number < 0 || number > 9) {
-          document.getElementById("output").textContent = "Invalid input. Make sure all numbers are between 0 and 9.";
+          document.getElementById("result").textContent = "Invalid input. Make sure all numbers are between 0 and 9.";
           return;
         }
         
@@ -169,7 +169,7 @@ function checkClue(guess, clue) {
       // Validasi angka duplikat dalam input clue
       const uniqueNumbers = new Set(input);
       if (uniqueNumbers.size !== 4) {
-        document.getElementById("output").textContent = "Each clue must have unique numbers.";
+        document.getElementById("result").textContent = "Each clue must have unique numbers.";
         return;
       }
   
@@ -184,7 +184,7 @@ function checkClue(guess, clue) {
       }
     }
   
-    document.getElementById("output").textContent =
+    document.getElementById("result").textContent =
       solutions.length > 0 ? `Solution found:\n${solutions.join("\n")}` : "No solution found.";
   });
   
