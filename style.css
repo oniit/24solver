@@ -250,7 +250,7 @@ input.long {
     }
 
     .category {
-        max-width: 30%;
+        max-width: 10%;
         margin-bottom: 20px;
     }
 
@@ -260,7 +260,7 @@ input.long {
     }
 
     input {
-        width: 40px;
+        width: 50px;
     }
 
     label {
