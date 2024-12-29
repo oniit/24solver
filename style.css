@@ -74,13 +74,14 @@ p {
 }
 
 .category {
-    flex: 1;
     min-width: 280px;
     max-width: 45%;
     background-color: #f4f4f9;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    flex: 1 1 45%;
 }
 
 .category h2 {
@@ -240,7 +241,7 @@ input.long {
     }
 
     h1 {
-        font-size: 18px;
+        font-size: 1.5rem;
       }
 
     .container {
@@ -250,9 +251,11 @@ input.long {
     }
 
     .category {
-        max-width: 10%;
+        width: 100%;
+        max-width: 100%;
         margin-bottom: 20px;
     }
+    
 
     .clue-group {
         flex-direction: column;
