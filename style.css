@@ -173,3 +173,9 @@ input {
         margin-bottom: 20px;
     }
 }
+
+.logo {
+    max-width: 200px; /* Atur ukuran maksimum logo */
+    height: auto;     /* Jaga proporsi gambar */
+    margin: 20px 0;   /* Tambahkan margin jika perlu */
+}
