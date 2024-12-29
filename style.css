@@ -21,11 +21,22 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.header-container {
+    display: flex;
+    align-items: center; /* Untuk meratakan logo dan teks secara vertikal */
+    justify-content: center; /* Untuk memusatkan kontainer */
+    gap: 15px; /* Jarak antara logo dan teks */
+}
+
+.logo {
+    height: 50px; /* Atur tinggi logo sesuai teks */
+    width: auto; /* Pertahankan proporsi logo */
+}
+
 h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 2rem; /* Sesuaikan ukuran teks */
     margin: 0;
-    text-transform: uppercase;
+    color: #333;
 }
 
 main {
@@ -83,7 +94,7 @@ ul li {
     font-size: 1rem;
     color: #333;
 }
-
+/*
 input {
     padding: 10px;
     font-size: 1rem;
@@ -92,6 +103,24 @@ input {
     width: calc(100% - 20px);
     margin-bottom: 20px;
 }
+
+input {
+    padding: 5px;
+    margin: 5px;
+    font-size: 3rem;
+} */
+
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; /* Atur lebar spesifik */
+    display: inline-block; /* Pastikan input tidak memakan satu baris penuh */
+    margin-right: 10px; /* Tambahkan jarak antar input jika ada */
+    margin-bottom: 0; /* Hilangkan margin bawah */
+}
+
 
 .button-wrapper {
     display: flex;
@@ -172,10 +201,4 @@ input {
         width: 100%;
         margin-bottom: 20px;
     }
-}
-
-.logo {
-    max-width: 200px; /* Atur ukuran maksimum logo */
-    height: auto;     /* Jaga proporsi gambar */
-    margin: 20px 0;   /* Tambahkan margin jika perlu */
 }
