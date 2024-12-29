@@ -7,7 +7,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* space-between */
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -20,18 +20,15 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Header container yang umum */
 .header-container {
     display: flex;
     align-items: center;
 }
 
-/* Untuk header dengan justify-content: center */
 .header-container-center {
     justify-content: center;
 }
 
-/* Untuk header dengan justify-content: flex-start */
 .header-container-flex-start {
     justify-content: flex-start;
     padding-left: 15px;
@@ -39,14 +36,14 @@ header {
 }
 
 .logo {
-    height: 50px; /* Atur tinggi logo sesuai kebutuhan */
-    width: auto; /* Jaga proporsi logo */
+    height: 50px;
+    width: auto;
     margin: 10px;
 }
 
 h1 {
-    font-size: 2rem; /* Sesuaikan ukuran judul */
-    color: white; /* Warna teks */
+    font-size: 2rem;
+    color: white;
     margin: 0;
 }
 
@@ -110,25 +107,25 @@ ul li {
 #clueForm {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Menjaga form agar terpusat secara horizontal */
+    align-items: center;
     gap: 20px;
     width: 100%;
-    max-width: 600px; /* Membatasi lebar form agar tidak terlalu lebar */
-    margin: 0 auto; /* Menjaga form agar terpusat di tengah halaman */
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .clue-group {
     display: flex;
-    justify-content: center; /* Menjaga label dan input tetap di tengah */
+    justify-content: center;
     align-items: center;
-    gap: 10px; /* Spasi antar label dan input */
+    gap: 10px;
     width: 100%;
 }
 
 label {
-    flex-shrink: 0; /* Label tetap dengan lebar yang sesuai */
-    text-align: left; /* Menjaga agar label rata kiri */
-    width: 250px; /* Menentukan lebar label agar tidak melebar */
+    flex-shrink: 0;
+    text-align: left;
+    width: 250px;
 }
 
 input {
@@ -136,13 +133,11 @@ input {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 50px; /* Atur lebar input sesuai kebutuhan */
-    text-align: center; /* Teks di dalam input tetap rata tengah */
+    width: 50px;
+    text-align: center;
     margin-bottom: 10px;
 }
 
----
-/* Styling untuk form dan input */
 #clueForm {
     display: flex;
     flex-direction: column;
@@ -151,15 +146,15 @@ input {
 
 .clue-group {
     display: flex;
-    justify-content: center; /* Ini akan membuat label dan input berada di ujung kiri dan kanan */
+    justify-content: center;
     align-items: center;
-    gap: 10px; /* Spasi antar label dan input */
+    gap: 10px;
 }
 
 label {
-    flex-shrink: 0; /* Label tetap dengan lebar yang sesuai */
-    text-align: left; /* Menjaga agar label rata kiri */
-    width: 310px; /* Menentukan lebar label agar tidak melebar */
+    flex-shrink: 0;
+    text-align: left;
+    width: 310px;
 }
 
 input {
@@ -167,13 +162,13 @@ input {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 50px; /* Atur lebar input sesuai kebutuhan */
-    text-align: center; /* Teks di dalam input tetap rata tengah */
+    width: 50px;
+    text-align: center;
     margin-bottom: 10px;
 }
 
 input.long {
-    width: 280px; /* Override width hanya untuk input tertentu */
+    width: 280px;
 }
 
 .button-wrapper {
@@ -246,7 +241,6 @@ input.long {
     overflow-y: auto;
 }
 
-/* Responsif jika lebar layar kecil */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -268,11 +262,10 @@ input.long {
     }
 
     label {
-        width: auto; /* Agar label menyesuaikan ukuran */
+        width: auto;
     }
 }
 
-/* Styling footer */
 footer {
     background-color: #4a90e2;
     text-align: center;

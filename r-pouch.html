@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold Pouch Game</title>
+  <style>
+    /* Body & Background */
+    body {
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 1rem;
+      color: #555;
+      text-align: center;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    /* Button, Input & Select Styling */
+    select, button {
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      background-color: #fff;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    select:focus, button:focus {
+      outline: none;
+      border-color: #007BFF;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.1);
+    }
+
+    button:active {
+      transform: scale(1);
+    }
+
+    /* Game Info Card */
+    .game-info {
+      font-size: 1.1rem;
+      color: #333;
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .game-info:hover {
+      transform: scale(1.05);
+    }
+
+    .game-info h2 {
+      color: #28a745;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    /* Bold Styling */
+    .bold {
+      font-weight: bold;
+    }
+
+    /* Total Deposited Style */
+    .total-deposited {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #007BFF;
+    }
+
+    /* FadeIn Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom Select Styling */
+    select {
+      font-size: 1.2rem;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      transition: all 0.3s ease;
+    }
+
+    select:hover {
+      background-color: #e0f7fa;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #007BFF;
+      background-color: #ffffff;
+    }
+    
+    /* Center Content */
+    .center-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Adjusting result to be at the bottom */
+    .result {
+      margin-top: 20px;
+    }
+
+    .form-group {
+      margin: 10px 0;
+    }
+
+    .form-group label {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="center-content">
+    <div class="game-info">
+      <h2>Welcome, <span class="bold" id="userName">Player</span>! Let's start the game!</h2>
+
+      <p class="description">A fun game where you and the computer will deposit gold pouches and guess the total combined amount. The one with the closest guess wins!</p>
+
+      <div class="form-group">
+        <label for="userDeposit" id="userDepositLabel">How many gold pouches will you deposit?</label>
+        <select id="userDeposit">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="userGuess" id="userGuessLabel">What is your guess for the total deposited?</label>
+        <select id="userGuess">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+
+      <p><button onclick="startGame()">Start Game</button></p>
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+    function startGame() {
+      const userDeposit = parseInt(document.getElementById('userDeposit').value);
+      const userGuess = parseInt(document.getElementById('userGuess').value);
+
+      // Random computer deposit
+      const computerDeposit = Math.floor(Math.random() * 11);  // 0 to 10
+      const totalDeposited = userDeposit + computerDeposit;
+
+      // Calculate the difference between guesses
+      const userGuessDifference = Math.abs(userGuess - totalDeposited);
+      const computerGuess = Math.floor(Math.random() * 21); // Computer random guess for total (0 to 20)
+      const computerGuessDifference = Math.abs(computerGuess - totalDeposited);
+
+      let winnerMessage = "It's a tie! 😱";
+      if (userGuessDifference < computerGuessDifference) {
+        winnerMessage = `${document.getElementById('userName').textContent}, you win! 🎉`;
+      } else if (computerGuessDifference < userGuessDifference) {
+        winnerMessage = "Computer wins! 😞";
+      }
+
+      document.getElementById('result').innerHTML = `
+        <p><span class="bold">${document.getElementById('userName').textContent}'s</span> deposit: <span class="bold">${userDeposit}</span> | Computer's deposit: <span class="bold">${computerDeposit}</span></p>
+        <p>Total deposited: <span class="total-deposited">${totalDeposited}</span></p>
+        <p><span class="bold">${document.getElementById('userName').textContent}'s</span> guess: <span class="bold">${userGuess}</span> | Computer's guess: <span class="bold">${computerGuess}</span></p>
+        <p><span class="bold" style="font-size: 1.5rem; color: ${userGuessDifference < computerGuessDifference ? '#28a745' : (computerGuessDifference < userGuessDifference ? '#dc3545' : '#6c757d')}">${winnerMessage}</span></p>
+      `;
+    }
+
+    // Handle user input for name
+    const userName = prompt("Enter your name:");
+    if (userName) {
+      document.getElementById('userName').textContent = userName;
+      document.getElementById('userDepositLabel').textContent = `Gold pouches you deposit...`;
+      document.getElementById('userGuessLabel').textContent = `Guess the total deposited...`;
+    }
+  </script>
+</body>
+</html>
