@@ -32,11 +32,12 @@ header {
     height: 60px; /* Atur tinggi logo sesuai kebutuhan */
     width: auto; /* Jaga proporsi logo */
     margin-right: 15px; /* Jarak antara logo dan teks */
+    margin-left: 15px;
 }
 
 h1 {
     font-size: 2rem; /* Sesuaikan ukuran judul */
-    color: #333; /* Warna teks */
+    color: white; /* Warna teks */
     margin: 0;
 }
 
@@ -116,7 +117,7 @@ input {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 200px; /* Atur lebar spesifik */
+    width: 50px; /* Atur lebar spesifik */
     display: inline-block; /* Pastikan input tidak memakan satu baris penuh */
     margin-right: 10px; /* Tambahkan jarak antar input jika ada */
     margin-bottom: 0; /* Hilangkan margin bawah */
