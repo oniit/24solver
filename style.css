@@ -240,7 +240,7 @@ input.long {
     }
 
     h1 {
-        font-size: 0.5rem;
+        font-size: 1rem;
       }
 
     .container {
@@ -250,7 +250,7 @@ input.long {
     }
 
     .category {
-        width: 85%;
+        width: 80%;
         margin-bottom: 20px;
     }
 
@@ -260,7 +260,7 @@ input.long {
     }
 
     input {
-        width: 30px;
+        width: 35px;
         text-align: center;
     }
 
