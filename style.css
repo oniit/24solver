@@ -240,7 +240,7 @@ input.long {
     }
 
     h1 {
-        font-size: 1rem;
+        font-size: 0.5rem;
       }
 
     .container {
@@ -260,7 +260,8 @@ input.long {
     }
 
     input {
-        width: 40px;
+        width: 30px;
+        text-align: center;
     }
 
     label {
