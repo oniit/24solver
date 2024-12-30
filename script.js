@@ -199,8 +199,8 @@ function checkClue(guess, clue) {
       }
     }
   
-    document.getElementById("result").textContent =
-      solutions.length > 0 ? `${solutions.join("\n")}` : "No solution found.";
+    document.getElementById("result").innerHTML =
+      solutions.length > 0 ? `${solutions.join("<br>")}` : "No solution found.";
   });
 
 // #GAME pouch
