@@ -4,7 +4,7 @@ async function updateTime() {
     const data = await response.json();
     const currentDate = new Date(data.datetime).toLocaleDateString('en-US', {
         day: '2-digit', 
-        month: 'long',
+        month: 'short',
         year: 'numeric'});
     const currentTime = new Date(data.datetime).toLocaleTimeString('id-ID', {hour12: true})
     document.getElementById('date').textContent = currentDate;
