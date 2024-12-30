@@ -18,7 +18,7 @@ header {
     text-align: center;
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    padding: 10px 0;
 }
   
 .header-container {
@@ -165,7 +165,7 @@ footer {
 
 .text-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 585px;
     margin: 0 auto;
     word-wrap: break-word;
     padding: 0;
@@ -198,6 +198,10 @@ select {
 
 input.long {
     width: 280px;
+}
+
+select.long {
+    width: 400px;
 }
 
 .button-wrapper {
@@ -276,6 +280,19 @@ input.long {
     color: #333;
     max-height: 300px;
     overflow-y: auto;
+}
+
+.win {
+    color: green; /* Warna hijau untuk menang */
+}
+.lose {
+    color: red; /* Warna merah untuk kalah */
+}
+.same-base {
+    color: blue; /* Warna biru untuk semarkas */
+}
+.diff-base {
+    color: orange; /* Warna oranye untuk beda markas */
 }
 
 @media (max-width: 768px) {

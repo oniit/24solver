@@ -238,3 +238,144 @@ function rollPouch() {
   `;
 }
   
+// president terrorist
+function updateroleOptions() {
+  const side = document.getElementById('side').value;
+  const roleSelect = document.getElementById('role');
+  
+  roleSelect.innerHTML = '';
+
+  let options = [];
+  if (side === 'President') {
+    options = ['President', 'Member'];
+  } else if (side === 'Terrorist') {
+    options = ['Bomber', 'Member'];
+  }
+
+  if (options.length > 0) {
+    options.forEach(option => {
+      const opt = document.createElement('option');
+      opt.value = option;
+      opt.textContent = option;
+      roleSelect.appendChild(opt);
+    });
+  }
+}
+
+function rollBomb() {
+  const userSide = document.getElementById('side').value;
+  const userRole = document.getElementById('role').value;
+
+  if (!userSide || !userRole) {
+    alert("Choose your decision first!");
+    return;
+  }
+
+  let hasil = `You choose ${userSide} side and sending your ${userRole}.<br>`;
+  document.getElementById('result').innerHTML = hasil;
+
+  setTimeout(() => {
+    const computerSide = userSide === 'President' ? 'Terrorist' : 'President';
+    const computerRole = computerSide === 'President' 
+      ? ['President', 'Member'][Math.floor(Math.random() * 2)] 
+      : ['Bomber', 'Member'][Math.floor(Math.random() * 2)];
+
+    hasil += `Your rival (${computerSide}) were sending their... `;
+    document.getElementById('result').innerHTML = hasil;
+
+    setTimeout(() => {
+      hasil += `${computerRole}!<br>`;
+      document.getElementById('result').innerHTML = hasil;
+
+      function checkGameResult(userSide, userRole, computerRole) {
+        if (userSide === "Terrorist") {
+          if (userRole === "Bomber" && computerRole === "President") {
+            return '<span class="lose">You lose, a clash at different bases.</span>';
+          } else if (userRole === "Bomber" && computerRole === "Member") {
+            return '<span class="win">Victory is yours, a bomb successfully blown up.</span>';
+          } else if (userRole === "Member" && computerRole === "President") {
+            return '<span class="win">You win, standing side by side.</span>';
+          } else if (userRole === "Member" && computerRole === "Member") {
+            return '<span class="lose">A defeat, bases are far apart.</span>';
+          }
+        } else if (userSide === "President") {
+          if (userRole === "President" && computerRole === "Bomber") {
+            return '<span class="win">You triumph, what a trick movement.</span>';
+          } else if (userRole === "President" && computerRole === "Member") {
+            return '<span class="lose">A crushing defeat, President got trapped in.</span>';
+          } else if (userRole === "Member" && computerRole === "Bomber") {
+            return '<span class="lose">You fall, along with your palace.</span>';
+          } else if (userRole === "Member" && computerRole === "Member") {
+            return '<span class="win">Victory is yours, they did not even dare.</span>';
+          }
+        }
+        return "Invalid input";
+      }
+
+      const result = checkGameResult(userSide, userRole, computerRole);  
+      setTimeout(() => {
+        hasil += result;  
+        document.getElementById('result').innerHTML = hasil;
+      }, 3000);
+    }, 3500);
+  }, 1500);
+}
+
+// function rollBomb() {
+//   const userSide = document.getElementById('side').value;
+//   const userRole = document.getElementById('role').value;
+
+//   if (!userSide || !userRole) {
+//     alert("Choose your decision first!");
+//     return;
+//   }
+
+//   let hasil = `You are ${userSide} side and sending ${userRole}.<br>`;
+//   document.getElementById('result').innerHTML = hasil;
+
+//   setTimeout(() => {
+//     const computerSide = userSide === 'President' ? 'Terrorist' : 'President';
+//     const computerRole = computerSide === 'President' 
+//       ? ['President', 'Member'][Math.floor(Math.random() * 2)] 
+//       : ['Bomber', 'Member'][Math.floor(Math.random() * 2)];
+
+//     hasil += `Your rival (${computerSide}) were sending their...<br>`;
+//     document.getElementById('result').innerHTML = hasil;
+
+//     setTimeout(() => {
+//       hasil += `${computerRole}.<br>`;
+//       document.getElementById('result').innerHTML = hasil;
+
+//       function checkGameResult(userSide, userRole, computerRole) {
+//         if (userSide === "Terrorist") {
+//           if (userRole === "Bomber" && computerRole === "President") {
+//             return "You send your Bomber, but the enemy sends their President... You lose, a clash at different bases.";
+//           } else if (userRole === "Bomber" && computerRole === "Member") {
+//             return "You send your Bomber, and the enemy sends a Member... Victory is yours, you're both in the same base.";
+//           } else if (userRole === "Member" && computerRole === "President") {
+//             return "You send a Member, and the enemy sends their President... You win, standing side by side.";
+//           } else if (userRole === "Member" && computerRole === "Member") {
+//             return "You send a Member, but the enemy sends another Member... A defeat, your bases are far apart.";
+//           }
+//         } else if (userSide === "President") {
+//           if (userRole === "President" && computerRole === "Bomber") {
+//             return "You send your President, and the enemy sends a Terrorist... You triumph, your bases stand apart.";
+//           } else if (userRole === "President" && computerRole === "Member") {
+//             return "You send your President, and the enemy sends a Member... A crushing defeat, you're stuck in the same base.";
+//           } else if (userRole === "Member" && computerRole === "Bomber") {
+//             return "You send a Member, and the enemy sends a Terrorist... You fall, separated by bases.";
+//           } else if (userRole === "Member" && computerRole === "Member") {
+//             return "You send a Member, but the enemy sends another Member... Victory is yours, your bases are different.";
+//           }
+//         }
+//         return "Invalid input";
+//       }
+
+//       const result = checkGameResult(userSide, userRole, computerRole);  
+//       setTimeout(() => {
+//         hasil += result;  
+//         document.getElementById('result').innerHTML = hasil;
+//       }, 3000);
+//     }, 3500);
+//   }, 1500);
+// }

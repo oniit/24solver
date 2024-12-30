@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomber Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container header-container-center">
+            <h1>Bomber Game</h1>
+            <img src="img/iconw.png" alt="Logo" class="logo">
+            <h1>by Mathifyx</h1>
+        </div>
+    </header>
+    <main>
+      <div class="text-container">
+        <p>You choose to play as either the President or the Terrorists.
+            Each side sends either a President, Bomber, or Member to the enemy base. 
+            The Terrorists win if the President and Bomber end up in the same base, 
+            while the President wins if the Bomber is kept away, 
+            even if the President is in any base.<br>
+          <p3>(The bot's input will be randomly generated.)</p2><br><br>
+      </div>
+            <div>
+                <label for="side">Select your side:</label><br>
+                <select id="side" class="long" onchange="updateroleOptions()">
+                    <option value="" disabled selected>President/Terrorist</option>
+                    <option value="President">President</option>
+                    <option value="Terrorist">Terrorist</option>
+                </select>
+            </div>
+            <div>
+                <label for="role">Select you send:</label><br>
+                <select id="role" class="long">
+                    <option value="" disabled selected>Choose side first</option>
+                </select>
+            </div>
+            <div class="button-wrapper">
+                <a href="index.html" class="back-btn">Back</a>
+                <button class="solve-btn" onclick="rollBomb()">Roll</button>
+            </div>
+            <div id="result" class="result"></div>
+        <div class="bottom">
+            <br><br><p3>UTC/GMT+7</p3>  
+            <p3 id="clock"></p3> 
+            <p3 id="date"></p3>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+<footer class="footer">
+    <p2>&copy; 2024 Mathifyx. All rights reserved.</p2>
+</footer>
+</html>
