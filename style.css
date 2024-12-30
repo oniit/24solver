@@ -288,12 +288,6 @@ select.long {
 .lose {
     color: red; /* Warna merah untuk kalah */
 }
-.same-base {
-    color: blue; /* Warna biru untuk semarkas */
-}
-.diff-base {
-    color: orange; /* Warna oranye untuk beda markas */
-}
 
 @media (max-width: 768px) {
     body {
@@ -335,6 +329,10 @@ select.long {
     select {
         width: 70px;
         margin: 5px;
+    }
+
+    select.long {
+        width: 77%;
     }
 
     .bottom {
