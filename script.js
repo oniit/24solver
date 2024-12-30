@@ -2,7 +2,10 @@
 async function updateTime() {  
     const response = await fetch('http://worldtimeapi.org/api/timezone/Asia/Jakarta');  
     const data = await response.json();
-    const currentDate = new Date(data.datetime).toLocaleDateString('id-ID', {month: 'long',});
+    const currentDate = new Date(data.datetime).toLocaleDateString('en-US', {
+        day: '2-digit', 
+        month: 'long',
+        year: 'numeric'});
     const currentTime = new Date(data.datetime).toLocaleTimeString('id-ID', {hour12: true})
     document.getElementById('date').textContent = currentDate;
     document.getElementById('clock').textContent = currentTime;

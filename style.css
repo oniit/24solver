@@ -284,22 +284,14 @@ input.long {
       }
 
     .container {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         padding: 10px;
     }
 
     .category {
         min-width: 100%;
-        max-width: 100%;
         margin-bottom: 20px;
-    }
-    
-    .clue-group {
-        flex-direction: row; /* Pastikan input tetap sejajar dalam satu baris */
-        justify-content: flex-start; /* Menjaga input tetap sejajar kiri */
-        gap: 10px; /* Mengatur jarak antar input */
-        flex-wrap: wrap; /* Jika input terlalu panjang, input akan dibungkus ke baris berikutnya */
     }
     
     label {
@@ -309,5 +301,10 @@ input.long {
     input,
     select {
         width: 50px;
+    }
+
+    .bottom {
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
 } 
