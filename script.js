@@ -1,5 +1,16 @@
-// 24 & 24+ SOLVER
+// small feature
+async function updateTime() {  
+    const response = await fetch('http://worldtimeapi.org/api/timezone/Asia/Jakarta');  
+    const data = await response.json();
+    const currentDate = new Date(data.datetime).toLocaleDateString('id-ID', {month: 'long',});
+    const currentTime = new Date(data.datetime).toLocaleTimeString('id-ID', {hour12: true})
+    document.getElementById('date').textContent = currentDate;
+    document.getElementById('clock').textContent = currentTime;
+}  
+setInterval(updateTime, 1000);  
+updateTime();
 
+// 24 & 24+ solver
 function solve24() {
     const nums = [
         parseFloat(document.getElementById('num1').value),
@@ -114,6 +125,7 @@ function findSolutions(numbers, target) {
     return [...new Set(results)];
 }
 
+// clue solver
 function checkClue(guess, clue) {
     const [numbers, clueType] = clue;
     if (clueType === "0 benar") {
@@ -187,4 +199,39 @@ function checkClue(guess, clue) {
     document.getElementById("result").textContent =
       solutions.length > 0 ? `${solutions.join("\n")}` : "No solution found.";
   });
+
+// pouch gold
+function rollPouch() {
+  const userGive = parseInt(document.getElementById('userGive').value);
+  const userGuess = parseInt(document.getElementById('userGuess').value);
+
+  const computerGive = Math.floor(Math.random() * 11);
+  const computerGuess = computerGive + Math.floor(Math.random() * 11);
+
+  const totalPouch = userGive + computerGive;
+
+  const userGuessDifference = Math.abs(userGuess - totalPouch);
+  const computerGuessDifference = Math.abs(computerGuess - totalPouch);
+
+  let winnerMessage = "It's a tie! 😱";
+  let textColor = '#6c757d';
+
+  if (userGuess === totalPouch) {
+    winnerMessage = `WOW, you guessed the EXACT total!`;
+    textColor = '#0056b3';
+  } else if (userGuessDifference < computerGuessDifference) {
+    winnerMessage = `Congrats, you win! 🎉`;
+    textColor = '#28a745';
+  } else if (computerGuessDifference < userGuessDifference) {
+    winnerMessage = "Computer wins! 😞";
+    textColor = '#dc3545';
+  }
+
+  document.getElementById('result').innerHTML = `
+    <p>Your give: ${userGive} | Computer's give: ${computerGive}</p>
+    <p>Total Pouch: ${totalPouch}</p>
+    <p>Your guess: ${userGuess} | Computer's guess: ${computerGuess}</p>
+    <p><span class="bold" style="font-size: 1.5rem; color: ${textColor}">${winnerMessage}</span></p>
+  `;
+}
   

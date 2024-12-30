@@ -18,6 +18,7 @@ header {
     text-align: center;
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
 }
   
 .header-container {
@@ -31,37 +32,65 @@ header {
 
 .header-container-flex-start {
     justify-content: flex-start;
-    padding-left: 15px;
-    margin: 15px;
+    padding-left: 30px;
+}
+
+.header-container-flex-end {
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .logo {
-    height: 50px;
+    height: 30px;
     width: auto;
     margin: 10px;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: white;
     margin: 0;
 }
 
-main {
-    padding: 2rem;
-    width: 100%;
-    max-width: 90%;
-    margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background-color: white;
-    flex-grow: 1;
+h2 {
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
 }
 
 p {
     font-size: 1.2rem;
     margin-bottom: 20px;
     color: #333;
+    line-height: 1.3;
+}
+
+p2 {
+    color: white;
+}
+
+p3 {
+    font-size: 0.9rem;
+    color: #0056b3;
+}
+
+main {
+    padding: 1.5rem 2rem 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+    display: flex; /* Mengatur main menjadi kontainer flex */
+    flex-direction: column; /* Elemen-elemen di dalamnya disusun secara vertikal */
+    flex-grow: 1;
+}
+
+.bottom {
+    margin-top: auto;
+    margin-left: auto;
+    padding-bottom: 20px;
 }
 
 .container {
@@ -75,7 +104,7 @@ p {
 
 .category {
     min-width: 280px;
-    max-width: 45%;
+    max-width: 48%;
     background-color: #f4f4f9;
     border-radius: 8px;
     padding: 20px;
@@ -117,11 +146,6 @@ footer {
     margin-top: 20px;
 }
 
-p2 {
-    size: 1rem;
-    color: white;
-}
-
 #clueForm {
     display: flex;
     flex-direction: column;
@@ -144,9 +168,11 @@ label {
     flex-shrink: 0;
     text-align: left;
     width: 310px;
+    line-height: 2;
+    color: #333;
 }
 
-input {
+input, select {
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
@@ -154,6 +180,12 @@ input {
     width: 50px;
     text-align: center;
     margin-bottom: 10px;
+}
+
+select {
+    font-size: 1.2rem;
+    width: 59px;
+    height: 40px;
 }
 
 input.long {
@@ -168,6 +200,7 @@ input.long {
 }
 
 .page-btn,
+.soon-btn,
 .solve-btn,
 .back-btn {
     padding: 0.75rem 1.5rem;
@@ -183,6 +216,13 @@ input.long {
     background-color: #007bff;
     color: white;
     width: 200px;
+}
+
+.soon-btn {
+    background-color: #ccc;
+    color: #0056b3;
+    width: 200px;
+    font-size: 1rem;
 }
 
 .page-btn:hover {
@@ -267,7 +307,8 @@ input.long {
         width: auto;
     }
 
-    input {
+    input,
+    select {
         width: 50px;
     }
 } 
