@@ -355,6 +355,10 @@ select.long {
         width: 77%;
     }
 
+    .choice-btn {
+        flex-direction: row;
+    }
+
     .bottom {
         padding-bottom: 0;
         margin-bottom: 0;
