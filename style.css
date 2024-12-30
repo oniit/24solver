@@ -273,6 +273,21 @@ select.long {
     background-color: #545b62;
 }
 
+.choice-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 17px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.choice-btn:hover {
+    background-color: #45a049;
+}
+
 #result {
     margin-top: 20px;
     font-size: 1.2rem;
@@ -285,8 +300,13 @@ select.long {
 .win {
     color: green; /* Warna hijau untuk menang */
 }
+
 .lose {
     color: red; /* Warna merah untuk kalah */
+}
+
+.tie {
+    color: #6c757d;
 }
 
 @media (max-width: 768px) {
@@ -339,4 +359,4 @@ select.long {
         padding-bottom: 0;
         margin-bottom: 0;
     }
-} 
+}

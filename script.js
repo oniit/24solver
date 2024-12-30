@@ -1,4 +1,4 @@
-// small feature
+// #FEATURE date and time
 async function updateTime() {  
     const response = await fetch('http://worldtimeapi.org/api/timezone/Asia/Jakarta');  
     const data = await response.json();
@@ -13,7 +13,7 @@ async function updateTime() {
 setInterval(updateTime, 1000);  
 updateTime();
 
-// 24 & 24+ solver
+// #SOLVER 24 & 24+
 function solve24() {
     const nums = [
         parseFloat(document.getElementById('num1').value),
@@ -128,7 +128,7 @@ function findSolutions(numbers, target) {
     return [...new Set(results)];
 }
 
-// clue solver
+// #SOLVER clue
 function checkClue(guess, clue) {
     const [numbers, clueType] = clue;
     if (clueType === "0 benar") {
@@ -203,42 +203,40 @@ function checkClue(guess, clue) {
       solutions.length > 0 ? `${solutions.join("\n")}` : "No solution found.";
   });
 
-// pouch gold
+// #GAME pouch
 function rollPouch() {
   const userGive = parseInt(document.getElementById('userGive').value);
   const userGuess = parseInt(document.getElementById('userGuess').value);
 
-  const computerGive = Math.floor(Math.random() * 11);
-  const computerGuess = computerGive + Math.floor(Math.random() * 11);
+  const botGive = Math.floor(Math.random() * 11);
+  const botGuess = botGive + Math.floor(Math.random() * 11);
 
-  const totalPouch = userGive + computerGive;
+  const totalPouch = userGive + botGive;
 
   const userGuessDifference = Math.abs(userGuess - totalPouch);
-  const computerGuessDifference = Math.abs(computerGuess - totalPouch);
+  const botGuessDifference = Math.abs(botGuess - totalPouch);
 
-  let winnerMessage = "It's a tie! 😱";
-  let textColor = '#6c757d';
+  let winnerMessage = '<span class="tie">It\'s a tie!<span>😱';
 
   if (userGuess === totalPouch) {
     winnerMessage = `WOW, you guessed the EXACT total!`;
     textColor = '#0056b3';
-  } else if (userGuessDifference < computerGuessDifference) {
-    winnerMessage = `Congrats, you win! 🎉`;
-    textColor = '#28a745';
-  } else if (computerGuessDifference < userGuessDifference) {
-    winnerMessage = "Computer wins! 😞";
+  } else if (userGuessDifference < botGuessDifference) {
+    winnerMessage = '<span class="win">You win!🎉</span>';
+  } else if (botGuessDifference < userGuessDifference) {
+    winnerMessage = '<span class="lose">You lose!😞</span>';
     textColor = '#dc3545';
   }
 
   document.getElementById('result').innerHTML = `
-    <p>Your give: ${userGive} | Computer's give: ${computerGive}</p>
+    <p>Your give: ${userGive} | bot's give: ${botGive}</p>
     <p>Total Pouch: ${totalPouch}</p>
-    <p>Your guess: ${userGuess} | Computer's guess: ${computerGuess}</p>
+    <p>Your guess: ${userGuess} | bot's guess: ${botGuess}</p>
     <p><span class="bold" style="font-size: 1.5rem; color: ${textColor}">${winnerMessage}</span></p>
   `;
 }
   
-// president terrorist
+// #GAME bomber
 function updateroleOptions() {
   const side = document.getElementById('side').value;
   const roleSelect = document.getElementById('role');
@@ -275,44 +273,44 @@ function rollBomb() {
   document.getElementById('result').innerHTML = hasil;
 
   setTimeout(() => {
-    const computerSide = userSide === 'President' ? 'Terrorist' : 'President';
-    const computerRole = computerSide === 'President' 
+    const botSide = userSide === 'President' ? 'Terrorist' : 'President';
+    const botRole = botSide === 'President' 
       ? ['President', 'Member'][Math.floor(Math.random() * 2)] 
       : ['Bomber', 'Member'][Math.floor(Math.random() * 2)];
 
-    hasil += `Your rival (${computerSide}) were sending their... `;
+    hasil += `Your rival (${botSide}) were sending their... `;
     document.getElementById('result').innerHTML = hasil;
 
     setTimeout(() => {
-      hasil += `${computerRole}!<br>`;
+      hasil += `${botRole}!<br>`;
       document.getElementById('result').innerHTML = hasil;
 
-      function checkGameResult(userSide, userRole, computerRole) {
+      function checkGameResult(userSide, userRole, botRole) {
         if (userSide === "Terrorist") {
-          if (userRole === "Bomber" && computerRole === "President") {
+          if (userRole === "Bomber" && botRole === "President") {
             return '<span class="lose">You lose, a clash at different bases.</span>';
-          } else if (userRole === "Bomber" && computerRole === "Member") {
+          } else if (userRole === "Bomber" && botRole === "Member") {
             return '<span class="win">Victory is yours, a bomb successfully blown up.</span>';
-          } else if (userRole === "Member" && computerRole === "President") {
+          } else if (userRole === "Member" && botRole === "President") {
             return '<span class="win">You win, standing side by side.</span>';
-          } else if (userRole === "Member" && computerRole === "Member") {
+          } else if (userRole === "Member" && botRole === "Member") {
             return '<span class="lose">A defeat, bases are far apart.</span>';
           }
         } else if (userSide === "President") {
-          if (userRole === "President" && computerRole === "Bomber") {
+          if (userRole === "President" && botRole === "Bomber") {
             return '<span class="win">You triumph, what a trick movement.</span>';
-          } else if (userRole === "President" && computerRole === "Member") {
+          } else if (userRole === "President" && botRole === "Member") {
             return '<span class="lose">A crushing defeat, President got trapped in.</span>';
-          } else if (userRole === "Member" && computerRole === "Bomber") {
+          } else if (userRole === "Member" && botRole === "Bomber") {
             return '<span class="lose">You fall, along with your palace.</span>';
-          } else if (userRole === "Member" && computerRole === "Member") {
+          } else if (userRole === "Member" && botRole === "Member") {
             return '<span class="win">Victory is yours, they did not even dare.</span>';
           }
         }
         return "Invalid input";
       }
 
-      const result = checkGameResult(userSide, userRole, computerRole);  
+      const result = checkGameResult(userSide, userRole, botRole);  
       setTimeout(() => {
         hasil += result;  
         document.getElementById('result').innerHTML = hasil;
@@ -321,61 +319,32 @@ function rollBomb() {
   }, 1500);
 }
 
-// function rollBomb() {
-//   const userSide = document.getElementById('side').value;
-//   const userRole = document.getElementById('role').value;
+// #GAME RPS
+function rollRPS(choice) {
+  let userChoice = choice;
+  document.getElementById('result').innerHTML = `You chose: ${userChoice}<br>`;
 
-//   if (!userSide || !userRole) {
-//     alert("Choose your decision first!");
-//     return;
-//   }
+  const botChoices = ['Rock', 'Paper', 'Scissors'];
+  let botChoice = botChoices[Math.floor(Math.random() * 3)];
+  document.getElementById('result').innerHTML += `Bot chose: ${botChoice}<br>`;
 
-//   let hasil = `You are ${userSide} side and sending ${userRole}.<br>`;
-//   document.getElementById('result').innerHTML = hasil;
+  let resultMessage = getWinner(userChoice, botChoice);
+  document.getElementById('result').innerHTML += resultMessage;
+}
 
-//   setTimeout(() => {
-//     const computerSide = userSide === 'President' ? 'Terrorist' : 'President';
-//     const computerRole = computerSide === 'President' 
-//       ? ['President', 'Member'][Math.floor(Math.random() * 2)] 
-//       : ['Bomber', 'Member'][Math.floor(Math.random() * 2)];
+function getWinner(user, bot) {
+  if (user === bot) {
+      return '<span class="tie">It\'s a tie!<span>';
+  }
+  if (
+      (user === 'Rock' && bot === 'Scissors') ||
+      (user === 'Scissors' && bot === 'Paper') ||
+      (user === 'Paper' && bot === 'Rock')
+  ) {
+      return '<span class="win">You win!</span>';
+  } else {
+      return '<span class="lose">You lose!</span>';
+  }
+}
 
-//     hasil += `Your rival (${computerSide}) were sending their...<br>`;
-//     document.getElementById('result').innerHTML = hasil;
-
-//     setTimeout(() => {
-//       hasil += `${computerRole}.<br>`;
-//       document.getElementById('result').innerHTML = hasil;
-
-//       function checkGameResult(userSide, userRole, computerRole) {
-//         if (userSide === "Terrorist") {
-//           if (userRole === "Bomber" && computerRole === "President") {
-//             return "You send your Bomber, but the enemy sends their President... You lose, a clash at different bases.";
-//           } else if (userRole === "Bomber" && computerRole === "Member") {
-//             return "You send your Bomber, and the enemy sends a Member... Victory is yours, you're both in the same base.";
-//           } else if (userRole === "Member" && computerRole === "President") {
-//             return "You send a Member, and the enemy sends their President... You win, standing side by side.";
-//           } else if (userRole === "Member" && computerRole === "Member") {
-//             return "You send a Member, but the enemy sends another Member... A defeat, your bases are far apart.";
-//           }
-//         } else if (userSide === "President") {
-//           if (userRole === "President" && computerRole === "Bomber") {
-//             return "You send your President, and the enemy sends a Terrorist... You triumph, your bases stand apart.";
-//           } else if (userRole === "President" && computerRole === "Member") {
-//             return "You send your President, and the enemy sends a Member... A crushing defeat, you're stuck in the same base.";
-//           } else if (userRole === "Member" && computerRole === "Bomber") {
-//             return "You send a Member, and the enemy sends a Terrorist... You fall, separated by bases.";
-//           } else if (userRole === "Member" && computerRole === "Member") {
-//             return "You send a Member, but the enemy sends another Member... Victory is yours, your bases are different.";
-//           }
-//         }
-//         return "Invalid input";
-//       }
-
-//       const result = checkGameResult(userSide, userRole, computerRole);  
-//       setTimeout(() => {
-//         hasil += result;  
-//         document.getElementById('result').innerHTML = hasil;
-//       }, 3000);
-//     }, 3500);
-//   }, 1500);
-// }
+// #DONE

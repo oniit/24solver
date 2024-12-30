@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container header-container-center">
+            <h1>RPS Game</h1>
+            <img src="img/iconw.png" alt="Logo" class="logo">
+            <h1>by Mathifyx</h1>
+        </div>
+    </header>
+    <main>
+      <div class="text-container">
+        <p>Rock / Paper / Scissors? Your choice!<br></p>
+          <p3>(The bot's input will be randomly generated.)</p2><br><br>
+      </div>
+            <div class="button-wrapper">
+                <a href="index.html" class="back-btn">Back</a>
+                <button class="solve-btn" onclick="rollRPS('Rock')">Rock</button>
+                <button class="solve-btn" onclick="rollRPS('Paper')">Paper</button>
+                <button class="solve-btn" onclick="rollRPS('Scissors')">Scissors</button>
+            </div>
+            <div id="result" class="result"></div>
+        <div class="bottom">
+            <br><br><p3>UTC/GMT+7</p3>  
+            <p3 id="clock"></p3> 
+            <p3 id="date"></p3>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+<footer class="footer">
+    <p2>&copy; 2024 Mathifyx. All rights reserved.</p2>
+</footer>
+</html>
