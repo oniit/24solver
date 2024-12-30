@@ -13,6 +13,46 @@ async function updateTime() {
 setInterval(updateTime, 1000);  
 updateTime();
 
+// #FEATURE move to next
+function moveToNext(currentElement, nextId) {
+  currentElement.addEventListener('input', function () {
+      if (this.value.length === 1 && nextId) {
+          document.getElementById(nextId).focus();
+      }
+  });
+}
+
+
+document.querySelectorAll('input').forEach(input => {
+  input.setAttribute('maxlength', '1'); // Set max length to 1
+  input.addEventListener('input', function () {
+      if (this.value.length === 1) {
+          const nextInput = this.nextElementSibling;
+          if (nextInput && nextInput.tagName === 'INPUT') {
+              nextInput.focus(); // Move to the next input
+          }
+      }
+  });
+});
+
+document.querySelectorAll('input').forEach(input => {
+  if (input.id !== 'free-length') {
+      input.setAttribute('maxlength', '1');
+  }
+  input.addEventListener('input', function () {
+      if (this.id === 'free-length') {
+          return;
+      }
+      const maxLength = this.getAttribute('maxlength');
+      if (maxLength && this.value.length >= maxLength) {
+          const nextInput = this.nextElementSibling;
+          if (nextInput && nextInput.tagName === 'INPUT') {
+              nextInput.focus();
+          }
+      }
+  });
+});
+
 // #SOLVER 24 & 24+
 function solve24() {
     const nums = [
@@ -29,11 +69,11 @@ function solve24() {
 
     const solutions = findSolutions(nums, 24);
     const resultContainer = document.getElementById('result');
-    resultContainer.innerHTML = ''; // Clear previous results
+    resultContainer.innerHTML = '';
 
     if (solutions.length > 0) {
         solutions.forEach(solution => {
-            const solutionElement = document.createElement('p');  // Use <p> for new line
+            const solutionElement = document.createElement('p');
             solutionElement.textContent = solution;
             resultContainer.appendChild(solutionElement);
         });

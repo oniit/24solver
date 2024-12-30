@@ -22,37 +22,37 @@
             <div id="clueInputs">
               <div>
                 <label>Two correct numbers in correct positions:</label><br>
-                <input type="number" min="0" max="9" id="clue0-0" required autofocus>
-                <input type="number" min="0" max="9" id="clue0-1" required>
-                <input type="number" min="0" max="9" id="clue0-2" required>
-                <input type="number" min="0" max="9" id="clue0-3" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue0-1')" id="clue0-0" required autofocus>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue0-2')" id="clue0-1" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue0-3')" id="clue0-2" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue1-0')" id="clue0-3" required>
               </div>
               <div>
                 <label>One correct number in the correct position:</label><br>
-                <input type="number" min="0" max="9" id="clue1-0" required>
-                <input type="number" min="0" max="9" id="clue1-1" required>
-                <input type="number" min="0" max="9" id="clue1-2" required>
-                <input type="number" min="0" max="9" id="clue1-3" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue1-1')" id="clue1-0" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue1-2')" id="clue1-1" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue1-3')" id="clue1-2" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue2-0')" id="clue1-3" required>
               </div>
               <div>
                 <label>Two correct numbers in wrong positions:</label><br>
-                <input type="number" min="0" max="9" id="clue2-0" required>
-                <input type="number" min="0" max="9" id="clue2-1" required>
-                <input type="number" min="0" max="9" id="clue2-2" required>
-                <input type="number" min="0" max="9" id="clue2-3" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue2-1')" id="clue1-3" id="clue2-0" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue2-2')" id="clue1-3" id="clue2-1" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue2-3')" id="clue1-3" id="clue2-2" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue3-0')" id="clue1-3" id="clue2-3" required>
               </div>
               <div>
                 <label>One correct number in the wrong position:</label><br>
-                <input type="number" min="0" max="9" id="clue3-0" required>
-                <input type="number" min="0" max="9" id="clue3-1" required>
-                <input type="number" min="0" max="9" id="clue3-2" required>
-                <input type="number" min="0" max="9" id="clue3-3" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue3-1')" id="clue1-3" id="clue3-0" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue3-2')" id="clue1-3" id="clue3-1" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue3-3')" id="clue1-3" id="clue3-2" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue4-0')" id="clue1-3" id="clue3-3" required>
               </div>
               <div>
                 <label>No correct numbers:</label><br>
-                <input type="number" min="0" max="9" id="clue4-0" required>
-                <input type="number" min="0" max="9" id="clue4-1" required>
-                <input type="number" min="0" max="9" id="clue4-2" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue4-1')" id="clue4-0" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue4-2')" id="clue4-1" required>
+                <input type="number" maxlength="1" oninput="moveToNext(this, 'clue4-3')" id="clue4-2" required>
                 <input type="number" min="0" max="9" id="clue4-3" required>
               </div>
               <div class="button-wrapper">
