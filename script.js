@@ -155,7 +155,7 @@ function findSolutions(numbers, target) {
     return [...new Set(results)];
 }
 
-// #SOLVER clue
+// #SOLVER clue satu2
 // function checkClue(guess, clue) {
 //     const [numbers, clueType] = clue;
 //     if (clueType === "0 benar") {
