@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clue Solver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Clue Solver</h1>
+    </header>
+    <main>
+        <form id="clue2Form">
+            <label for="clueInput">Masukkan Soal:</label><br>
+            <textarea id="clueInput" rows="10" cols="50" placeholder="Contoh:\n[5, 6, 4, 1] - Satu angka benar di posisi benar\n[3, 6, 0, 5] - Dua angka benar di posisi benar\n..."></textarea><br>
+            <button type="submit" id="solveButton">Solve</button>
+        </form>
+        <div id="result"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

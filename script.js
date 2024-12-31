@@ -22,19 +22,6 @@ function moveToNext(currentElement, nextId) {
   });
 }
 
-
-document.querySelectorAll('input').forEach(input => {
-  input.setAttribute('maxlength', '1'); // Set max length to 1
-  input.addEventListener('input', function () {
-      if (this.value.length === 1) {
-          const nextInput = this.nextElementSibling;
-          if (nextInput && nextInput.tagName === 'INPUT') {
-              nextInput.focus(); // Move to the next input
-          }
-      }
-  });
-});
-
 document.querySelectorAll('input').forEach(input => {
   if (input.id !== 'free-length') {
       input.setAttribute('maxlength', '1');
@@ -169,81 +156,132 @@ function findSolutions(numbers, target) {
 }
 
 // #SOLVER clue
-function checkClue(guess, clue) {
-    const [numbers, clueType] = clue;
-    if (clueType === "0 benar") {
-      return guess.every(num => !numbers.includes(num));
-    } else if (clueType === "2 benar") {
-      return guess.filter((num, i) => num === numbers[i]).length === 2;
-    } else if (clueType === "1 benar") {
-      return guess.filter((num, i) => num === numbers[i]).length === 1;
-    } else if (clueType === "2 salah") {
-      return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 2;
-    } else if (clueType === "1 salah") {
-      return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 1;
-    }
-    return false;
-  }
+// function checkClue(guess, clue) {
+//     const [numbers, clueType] = clue;
+//     if (clueType === "0 benar") {
+//       return guess.every(num => !numbers.includes(num));
+//     } else if (clueType === "2 benar") {
+//       return guess.filter((num, i) => num === numbers[i]).length === 2;
+//     } else if (clueType === "1 benar") {
+//       return guess.filter((num, i) => num === numbers[i]).length === 1;
+//     } else if (clueType === "2 salah") {
+//       return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 2;
+//     } else if (clueType === "1 salah") {
+//       return guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length === 1;
+//     }
+//     return false;
+//   }
   
-  function permutations(arr, size) {
-    if (size === 1) return arr.map(el => [el]);
-    const result = [];
-    arr.forEach((el, i) => {
-      const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
-      permutations(rest, size - 1).forEach(perm => result.push([el, ...perm]));
-    });
-    return result;
-  }
+//   function permutations(arr, size) {
+//     if (size === 1) return arr.map(el => [el]);
+//     const result = [];
+//     arr.forEach((el, i) => {
+//       const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
+//       permutations(rest, size - 1).forEach(perm => result.push([el, ...perm]));
+//     });
+//     return result;
+//   }
   
-  document.getElementById("clueForm").addEventListener("submit", (event) => {
-    event.preventDefault(); // Menghindari reload form
+//   document.getElementById("clueForm").addEventListener("submit", (event) => {
+//     event.preventDefault(); // Menghindari reload form
   
-    const clueTypes = ["2 benar", "1 benar", "2 salah", "1 salah", "0 benar"];
-    const clues = [];
+//     const clueTypes = ["2 benar", "1 benar", "2 salah", "1 salah", "0 benar"];
+//     const clues = [];
   
-    // Cek apakah semua input sudah terisi dan tidak ada angka yang duplikat
-    for (let i = 0; i < 5; i++) {
-      const input = [];
-      for (let j = 0; j < 4; j++) {
-        const value = document.getElementById(`clue${i}-${j}`).value;
+//     // Cek apakah semua input sudah terisi dan tidak ada angka yang duplikat
+//     for (let i = 0; i < 5; i++) {
+//       const input = [];
+//       for (let j = 0; j < 4; j++) {
+//         const value = document.getElementById(`clue${i}-${j}`).value;
         
-        if (value === "") {
-          document.getElementById("result").textContent = "Please fill all the fields.";
-          return; // Stop jika ada input kosong
-        }
+//         if (value === "") {
+//           document.getElementById("result").textContent = "Please fill all the fields.";
+//           return; // Stop jika ada input kosong
+//         }
   
-        const number = Number(value);
-        if (isNaN(number) || number < 0 || number > 9) {
-          document.getElementById("result").textContent = "Invalid input. Make sure all numbers are between 0 and 9.";
-          return;
-        }
+//         const number = Number(value);
+//         if (isNaN(number) || number < 0 || number > 9) {
+//           document.getElementById("result").textContent = "Invalid input. Make sure all numbers are between 0 and 9.";
+//           return;
+//         }
         
-        input.push(number);
-      }
+//         input.push(number);
+//       }
   
-      // Validasi angka duplikat dalam input clue
-      const uniqueNumbers = new Set(input);
-      if (uniqueNumbers.size !== 4) {
-        document.getElementById("result").textContent = "Each clue must have unique numbers.";
-        return;
-      }
+//       // Validasi angka duplikat dalam input clue
+//       const uniqueNumbers = new Set(input);
+//       if (uniqueNumbers.size !== 4) {
+//         document.getElementById("result").textContent = "Each clue must have unique numbers.";
+//         return;
+//       }
   
-      clues.push([input, clueTypes[i]]);
-    }
+//       clues.push([input, clueTypes[i]]);
+//     }
   
-    const allPermutations = permutations([...Array(10).keys()], 4);
-    const solutions = [];
-    for (const perm of allPermutations) {
-      if (clues.every(clue => checkClue(perm, clue))) {
-        solutions.push(perm.join(" "));
-      }
-    }
+//     const allPermutations = permutations([...Array(10).keys()], 4);
+//     const solutions = [];
+//     for (const perm of allPermutations) {
+//       if (clues.every(clue => checkClue(perm, clue))) {
+//         solutions.push(perm.join(" "));
+//       }
+//     }
   
-    document.getElementById("result").innerHTML =
-      solutions.length > 0 ? `${solutions.join("<br>")}` : "No solution found.";
-  });
+//     document.getElementById("result").innerHTML =
+//       solutions.length > 0 ? `${solutions.join("<br>")}` : "No solution found.";
+//   });
 
-// #GAME pouch
+// solver vein
+document.getElementById("clue2Form").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const input = document.getElementById("clueInput").value.trim();
+  if (!input) {
+      document.getElementById("result").textContent = "Silakan masukkan soal.";
+      return;
+  }
+
+  const clues = input
+      .replace(/^Clue Angka\s*:/i, "") // Hilangkan header "Clue Angka :"
+      .split(/\d+\.\s+/) // Pisahkan berdasarkan "1. ", "2. ", dst.
+      .map(line => line.trim())
+      .filter(line => line.length > 0)
+      .map(line => {
+          const match = line.match(/\[(\d), (\d), (\d), (\d)\] - (.+)/);
+          if (!match) throw new Error(`Format tidak valid di baris: "${line}"`);
+          return { 
+              numbers: match.slice(1, 5).map(Number), 
+              description: match[5].trim() 
+          };
+      });
+
+  const allPermutations = generatePermutations([...Array(10).keys()], 4);
+  const solutions = allPermutations.filter(perm => clues.every(clue => validateClue(perm, clue)));
+
+  document.getElementById("result").innerHTML =
+      solutions.length > 0 ? solutions.map(sol => sol.join(" ")).join("<br>") : "Tidak ada solusi yg ditemukan.";
+});
+
+function validateClue(guess, clue) {
+  const { numbers, description } = clue;
+  const correctPosition = guess.filter((num, i) => num === numbers[i]).length;
+  const wrongPosition = guess.filter((num, i) => numbers.includes(num) && num !== numbers[i]).length;
+
+  if (description === "Tidak ada yang benar") return correctPosition === 0 && wrongPosition === 0;
+  if (description === "Satu angka benar di posisi benar") return correctPosition === 1;
+  if (description === "Dua angka benar di posisi benar") return correctPosition === 2;
+  if (description === "Dua angka benar di posisi salah") return wrongPosition === 2;
+  if (description === "Satu angka benar di posisi salah") return wrongPosition === 1;
+  return false;
+}
+
+function generatePermutations(arr, size) {
+  if (size === 1) return arr.map(el => [el]);
+  return arr.flatMap((el, i) => 
+      generatePermutations([...arr.slice(0, i), ...arr.slice(i + 1)], size - 1).map(perm => [el, ...perm])
+  );
+}
+
+  // #GAME pouch
 function rollPouch() {
   const userGive = parseInt(document.getElementById('userGive').value);
   const userGuess = parseInt(document.getElementById('userGuess').value);
